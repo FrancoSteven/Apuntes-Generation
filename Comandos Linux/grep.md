@@ -115,6 +115,3 @@ grep -r "pista" .
 
 ---
 
-## 🏴‍☠️ ¡Ahora ya eres un experto en `grep`! 🚀
-
-ChatGPT todavía está generando una respuesta…
