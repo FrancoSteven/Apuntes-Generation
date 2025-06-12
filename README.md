@@ -1,7 +1,6 @@
-# 📚 Repositorio de Apuntes Técnicos 
+# 📚 Repositorio de Apuntes Técnicos
 
-Repositorio diseñado para estudiantes y desarrolladores que necesitan consultar rápidamente comandos, teoría y ejemplos en áreas clave.  
-
+Repositorio diseñado para estudiantes y desarrolladores que necesitan consultar rápidamente comandos, teoría y ejemplos en áreas clave.
 
 ## 🛠️ Tecnologías Utilizadas
 
@@ -20,11 +19,16 @@ Repositorio diseñado para estudiantes y desarrolladores que necesitan consultar
 ## 🗂️ Estructura del Proyecto
 
 ```
-
+├── 📂 Java/          → Ejemplos y ejercicios fundamentales de Java
+│ ├── 📂 semana4/ → Código base: operadores, variables, comparación
+│ │ ├── Operadores.java → Demostración de operadores aritméticos, lógicos y más
+│ │ ├── Variables.java → Tipos de datos primitivos y objetos
+│ │ ├── 📂 ejemplo/ 
+│ │ │  └── Compare.java → Comparación de cadenas con compareTo y ASCII
+│ └── 📂 semana5/ → Próximos temas: entrada/salida, estructuras de control
 ├── 📂 comandos/          → Guía rápida de Git (flujo de trabajo, comandos útiles)
 │   └── 📂 linux/        → Comandos Linux esenciales y scripts
 │   └── 📂 git/         → Repasos de Java (POO, sintaxis, ejercicios)
 ├── 📝 glosario/     → Definiciones de términos técnicos
 
 ```
-
