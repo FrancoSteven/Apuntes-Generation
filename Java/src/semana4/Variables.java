@@ -1,6 +1,5 @@
 package semana4;
 
-
 public class Variables {
     public static void main(String[] args) {
         // Tipos de datos primitivos
