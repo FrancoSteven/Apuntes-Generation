@@ -115,6 +115,8 @@ public class BucleFor {
         // Convergencia de dos números
         for (int i = 0, j = 10; i < j; i++, j--) {
             System.out.printf("i = %d, j = %d, diferencia = %d%n", i, j, j - i);
+           // System.out.println("i = " + i + ", j = " + j + ", diferencia = " + (j - i));
+
         }
 
         System.out.println("─".repeat(50) + "\n");
