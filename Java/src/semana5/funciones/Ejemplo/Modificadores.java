@@ -1,4 +1,4 @@
-package semana5.funciones;
+package semana5.funciones.Ejemplo;
 
 public class Modificadores {
     // Acceso PÚBLICO (visible en cualquier parte)
