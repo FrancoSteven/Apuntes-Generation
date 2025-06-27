@@ -641,7 +641,7 @@ Es como **una cuenta de Netflix**: necesitas iniciar sesión con una cuenta espe
    - Tiene un atributo `titulo`.
    - Un método **no estático** `mostrarTitulo()` que imprime el título.
 
-3. Desde `Main`, realiza ambas llamadas:
+3. Desde clase `Main`, realiza ambas llamadas:
 
    - Llama a `UtilidadesTexto.contarCaracteres(...)` sin crear objeto.
    - Crea un objeto de `Libro` y llama a `mostrarTitulo()`.

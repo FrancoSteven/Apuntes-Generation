@@ -1,6 +1,6 @@
-package semana6.herencia.practica2.animales;
+package semana6.RefugioAnimal.animales;
 
-import semana6.herencia.practica2.modelo.Animales;
+import semana6.RefugioAnimal.modelo.Animales;
 
 public class Perro extends Animales {
 
@@ -41,4 +41,21 @@ public class Perro extends Animales {
     public void hacerSonido(){
         System.out.println(nombre + " Guau Guau \uD83D\uDC36");
     }
+
+
+    // Sobrecarga 1: sin parámetros
+    public void alimentar() {
+        System.out.println(nombre + " está comiendo croquetas.");
+    }
+
+    // Sobrecarga 2: con tipo de comida
+    public void alimentar(String comida) {
+        System.out.println(nombre + " está comiendo " + comida + ".");
+    }
+
+    // Sobrecarga 3: con tipo de comida y cantidad
+    public void alimentar(String comida, int cantidad) {
+        System.out.println(nombre + " comió " + cantidad + " gramos de " + comida + ".");
+    }
+
 }

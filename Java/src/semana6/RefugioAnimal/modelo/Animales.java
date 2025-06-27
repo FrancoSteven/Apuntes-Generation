@@ -1,4 +1,4 @@
-package semana6.herencia.practica2.modelo;
+package semana6.RefugioAnimal.modelo;
 
 public class Animales {
 

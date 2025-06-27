@@ -1,6 +1,6 @@
-package semana6.herencia.practica2.animales;
+package semana6.RefugioAnimal.animales;
 
-import semana6.herencia.practica2.modelo.Animales;
+import semana6.RefugioAnimal.modelo.Animales;
 
 public class Gato extends Animales {
 
