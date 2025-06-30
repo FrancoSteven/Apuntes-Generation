@@ -1,6 +1,6 @@
 package semana6.RefugioAnimal.modelo;
 
-public class Animales {
+public abstract class Animales {
 
     // Atributos
     protected String nombre;
@@ -46,9 +46,11 @@ public class Animales {
     }
 
     // Metodo generico para poder sobreescribirlo
-    public void hacerSonido() {
+/*    public void hacerSonido() {
         System.out.println("El animal ha hecho un sonido");
-    }
+    };*/
+
+    public abstract void hacerSonido();
 
 
 }

@@ -677,3 +677,299 @@ perro2.alimentar("croquetas", 150);        // dos argumentos
 ✔️ Aplicamos **polimorfismo en tiempo de compilación** mediante sobrecarga.  
 ✔️ Demostramos que múltiples métodos pueden coexistir con el mismo nombre.  
 ✔️ Completamos los dos tipos de polimorfismo en Java: sobrescritura (dinámico) y sobrecarga (estático).
+
+
+
+
+# 🧪 Ejercicio guiado: Refugio Animal - Parte 5: Clases abstractas
+
+En esta quinta parte del sistema `RefugioAnimal`, exploramos el uso de **clases abstractas** para estructurar mejor nuestro modelo. Este enfoque permite definir un comportamiento común en una clase base, y obligar a las subclases a implementar ciertos métodos.
+
+---
+
+## 👣 Paso 9: Transformar `Animal` en clase abstracta
+
+📌 Vamos a hacer que `Animal` sea una **clase abstracta**, para que ya no se pueda instanciar directamente. Además, definiremos un **método abstracto obligatorio** que todas las subclases deben implementar.
+
+---
+
+### 📄 `modelo/Animal.java` (convertido en clase abstracta)
+
+```java
+package modelo;
+
+// Clase abstracta: NO se puede instanciar directamente
+public abstract class Animal {
+
+    protected String nombre;
+    protected String especie;
+    protected int edad;
+
+    public Animal(String nombre, String especie, int edad) {
+        this.nombre = nombre;
+        this.especie = especie;
+        this.edad = edad;
+    }
+
+    public void mostrarInformacion() {
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Especie: " + especie);
+        System.out.println("Edad: " + edad + " años");
+    }
+
+    // Método abstracto que DEBE ser implementado por cada subclase
+    public abstract void hacerSonido();
+}
+```
+
+---
+
+## 🧱 Reglas clave sobre clases abstractas
+
+| Regla | ¿Se cumple? |
+|-------|-------------|
+| No se puede instanciar directamente | ✅ |
+| Puede contener métodos comunes (con código) | ✅ |
+| Puede contener métodos abstractos (sin código) | ✅ |
+| Obliga a las subclases a implementar esos métodos | ✅ |
+
+---
+
+### 📄 `Perro.java` y `Gato.java` siguen funcionando sin cambios
+
+Estas clases ya implementaban `hacerSonido()`, por lo tanto **cumplen con el contrato** de la clase abstracta `Animal`.
+
+---
+
+## 🧪 Probar en `Main.java`
+
+Reemplaza o elimina cualquier línea que intente hacer esto:
+
+```java
+Animal a = new Animal("X", "Desconocido", 0); // ❌ ya no permitido
+```
+
+Y mantén solo subclases concretas como `Perro` y `Gato`:
+
+```java
+Animal a = new Perro("Lobo", 6); // ✅ permitido
+a.hacerSonido(); // Ejecuta la versión de Perro
+```
+
+---
+
+## ✅ Ventajas del uso de clases abstractas
+
+✔️ Define una estructura base común.  
+✔️ Obliga a las subclases a implementar ciertos comportamientos.  
+✔️ Mejora el diseño y legibilidad del sistema.  
+✔️ Ideal para representar entidades genéricas como `Animal`.
+
+---
+
+## ✅ Conclusiones
+
+✔️ Implementamos el principio de **abstracción** en OOP.  
+✔️ Hicimos que `Animal` actúe como plantilla para sus subclases.  
+✔️ Evitamos instancias inválidas y promovemos código más limpio.  
+✔️ Todas las subclases ahora tienen una obligación clara de comportamiento.
+
+---
+
+
+# 🧪 Ejercicio guiado: Refugio Animal - Parte 6: Interfaces en acción
+
+En esta sexta parte, integramos **interfaces** a nuestro proyecto `RefugioAnimal` para representar **capacidades o comportamientos adicionales** que ciertos animales pueden tener, sin afectar la jerarquía de herencia.
+
+---
+
+## 👣 Paso 10: Implementar interfaces en animales
+
+### 🎯 ¿Por qué interfaces?
+
+- Las clases en Java **solo pueden heredar de una clase padre**, pero pueden **implementar múltiples interfaces**.
+- Una **interfaz define un contrato de comportamiento**, sin lógica, que puede ser compartido entre clases no relacionadas directamente.
+
+---
+
+## 📐 Diseño de ejemplo
+
+Agregamos dos interfaces:
+
+- `Entrenable`: define animales que pueden ser entrenados.
+- `Adoptable`: define animales que pueden ser adoptados.
+
+---
+
+### 📄 `interfaces/Entrenable.java`
+
+```java
+package interfaces;
+
+public interface Entrenable {
+    void entrenando(); // NO CONFUNDIR CON EL ENTRENAR DEL INICIO
+}
+```
+
+---
+
+### 📄 `interfaces/Adoptable.java`
+
+```java
+package interfaces;
+
+public interface Adoptable {
+    String datosAdopcion();
+}
+```
+
+---
+
+## 🐶 `Perro.java` implementa ambas interfaces
+
+```java
+package animales;
+
+import modelo.Animal;
+import interfaces.Entrenable;
+import interfaces.Adoptable;
+
+public class Perro extends Animal implements Entrenable, Adoptable {
+
+    public Perro(String nombre, int edad) {
+        super(nombre, edad);
+    }
+
+    @Override
+    public void hacerSonido() {
+        System.out.println(nombre + " dice ¡Guau!");
+    }
+
+    @Override
+    public String tipoAlimentacion() {
+        return "Croquetas y carne";
+    }
+
+    @Override
+    public void entrenando() {
+        System.out.println(nombre + " ha aprendido a sentarse. 🐾");
+    }
+
+    @Override
+    public String datosAdopcion() {
+        return "Perro " + nombre + " de " + edad + " años disponible para adopción.";
+    }
+}
+```
+
+---
+
+## 🐱 `Gato.java` implementa solo `Adoptable`
+
+```java
+package animales;
+
+import modelo.Animal;
+import interfaces.Adoptable;
+
+public class Gato extends Animal implements Adoptable {
+
+    public Gato(String nombre, int edad) {
+        super(nombre, edad);
+    }
+
+    @Override
+    public void hacerSonido() {
+        System.out.println(nombre + " dice ¡Miau!");
+    }
+
+    @Override
+    public String datosAdopcion() {
+        return "Gato " + nombre + " de " + edad + " años listo para un hogar.";
+    }
+}
+```
+
+---
+
+## 🧪 Probar en `Main.java`
+
+```java
+import animales.Perro;
+import animales.Gato;
+import interfaces.Adoptable;
+import interfaces.Entrenable;
+
+// Instancia por si no la tenemos 
+Perro p = new Perro("Max", 3);
+Gato g = new Gato("Michi", 2);
+
+p.entrenando(); // método de interfaz Entrenable
+System.out.println(p.datosAdopcion()); // método de interfaz Adoptable
+
+System.out.println("---");
+
+System.out.println(g.datosAdopcion()); // Gato también es Adoptable
+
+// También podrías usar polimorfismo con interfaces:
+Adoptable a1 = p;
+System.out.println(a1.datosAdopcion());
+
+Entrenable e1 = p;
+e1.entrenando();
+```
+
+---
+
+## 📘 ¿Qué aprendemos?
+
+| Elemento     | Uso                          |
+|--------------|-------------------------------|
+| `implements` | Conecta clase con interfaz    |
+| `interface`  | Define métodos sin lógica     |
+| `@Override`  | Implementa el contrato        |
+| `polimorfismo` | Podemos usar referencias de interfaz |
+
+---
+
+## 💬 Reflexión importante: ¿Por qué interfaces si "funcionaba sin ellas"?
+
+Aunque podrías definir métodos como `entrenar()` directamente en tus clases (`Perro`, `Gato`), al usar interfaces:
+
+✅ **Defines contratos formales** que pueden ser compartidos entre clases no relacionadas.  
+✅ **Permites herencia múltiple de comportamiento** (algo que no puedes hacer con clases).  
+✅ **Desacoplas el diseño**: puedes tratar a los objetos por su **capacidad** (`Adoptable`) en lugar de su tipo (`Perro`).  
+✅ **Facilitas polimorfismo limpio**: trabajar con listas, filtros o métodos que aceptan interfaces es más flexible.
+
+---
+
+## 🐾 Ejemplo realista con extensión:
+
+Si tienes una clase `Cachorro` que extiende de `Perro`, ya no puedes heredar otra clase concreta. Pero **sí puedes implementar interfaces** para sumar más comportamiento:
+
+```java
+public class Cachorro extends Perro implements Vacunable {
+    public Cachorro(String nombre, int edad) {
+        super(nombre, edad);
+    }
+
+    @Override
+    public void vacunar() {
+        System.out.println(nombre + " ha sido vacunado 💉");
+    }
+}
+```
+
+Así, accedes a `vacunar()` sin romper el límite de herencia de Java.
+
+---
+
+## ✅ Conclusión
+
+✔️ Las interfaces permiten compartir comportamientos entre clases no relacionadas.  
+✔️ Complementan la herencia con herencia múltiple de comportamientos.  
+✔️ Son ideales para **modelar capacidades** como `Entrenable`, `Vacunable`, `Adoptable`.  
+✔️ Favorecen sistemas extensibles, polimórficos y de bajo acoplamiento.
+
+---
+
