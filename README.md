@@ -19,13 +19,15 @@ Repositorio diseñado para estudiantes y desarrolladores que necesitan consultar
 ## 🗂️ Estructura del Proyecto
 
 ```
-├── 📂 Java/          → Ejemplos y ejercicios fundamentales de Java
-│ ├── 📂 semana4/ → Código base: operadores, variables, comparación
-│ ├── 📂 semana5/ → Código base: for, while, do-while, if, else-if, switch, operadores ternarios
-│ └── 📂 semana6/ → Código base: POO, encapsulamiento, herencia, polimorfismo, abstracción, interfaces
-├── 📂 comandos/  → Guía rápida de Git (flujo de trabajo, comandos útiles)
-│   └── 📂 linux/ → Comandos Linux esenciales y scripts
-│   └── 📂 git/   → Repasos de Java (POO, sintaxis, ejercicios)
-├── 📝 glosario/  → Definiciones de términos técnicos
-
+├── 📂 docs/        → Apuntes técnicos
+├── 📂 comandos/    → Guía rápida de Git (flujo de trabajo, comandos útiles)
+│   ├── 📂 linux/   → Comandos Linux esenciales y scripts
+│   └── 📂 git/     → Repasos de Java (POO, sintaxis, ejercicios)
+├── 📂 java/        → Ejemplos y ejercicios fundamentales de Java
+│   ├── 📂 semana4/ → Código base: operadores, variables, comparación
+│   ├── 📂 semana5/ → Código base: for, while, do-while, if, else-if, switch, operadores ternarios
+│   └── 📂 semana6/ → Código base: POO, encapsulamiento, herencia, polimorfismo, abstracción, interfaces
+├── 📂 java-maven/
+│   └── 📂 semana7/ → Gestión de memoria, excepciones, pruebas unitarias con JUnit 5 y TDD con Maven
+├── 📝 glosario/    → Definiciones de términos técnicos
 ```
