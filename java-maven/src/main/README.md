@@ -323,7 +323,7 @@ Y activas Maven en IntelliJ sobre el proyecto global, podrías romper la estruct
 ### 1. Estructura Maven esperada
 
 ```
-semana7/
+java-maven/
 ├── pom.xml
 ├── src/
 │   ├── main/
