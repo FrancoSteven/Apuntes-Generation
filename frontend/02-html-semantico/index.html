@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Especifica el conjunto de caracteres que se usan en el documento, es el estándar moderno que soporta casi todos los caracteres de todos los idiomas. -->
+    <meta charset="UTF-8"> 
+    <!-- Evita problemas con acentos, eñes, símbolos y emojis. Mejora la compatibilidad internacional. -->
+    
+    <!-- Controla cómo se adapta el contenido en dispositivos móviles. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hace que la web sea responsive, es decir, que se vea bien en celulares, tabletas y computadoras. Mejora la experiencia de usuario y el posicionamiento en Google. -->
+    
+    
+    <!-- Es una breve descripción del contenido de la página. -->
+    <meta name="description" content="Proyecto etiquetas semánticas">
+    <!-- Es la descripción que aparece en los resultados de búsqueda (SERP). Mejora el SEO y el CTR (click-through rate). -->
+
+    <!--Lista palabras clave relevantes para el contenido.  -->
+    <meta name="keywords" content="html, etiquetas, semánticas">
+    <!-- Hoy en día, Google ya no le da mucha importancia, pero puede seguir siendo útil para otros buscadores o propósitos. -->
+
+    <!-- Indica el autor del documento. -->
+    <meta name="author" content="El Profe">
+    <!-- Aporta información sobre la autoría. Útil para documentación, créditos y herramientas de análisis. -->
+    
+    
+    <title>Document</title>
+    <style>
+        /* Acá podemos agregar estilos dentro del HTML */
+        table {
+            width: 100%;
+            margin: 20px 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        table th {
+            background-color: cadetblue;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- Cabecera de la página -->
+    <header>
+        <h1>C20 Raices Digitales</h1>
+        <nav><!-- Navbar-->
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#lista">Lista de Estudiantes</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seccion principal -->
+    <main>
+        <!-- las secciones las separamos por etiqueta Section -->
+        <section id="inicio">
+            <h2>Bienvenid@ a mi página</h2>
+            <p>Esta es la sección de inicio</p>
+        </section>
+
+        <section id="lista">
+            <h2>Lista de Estudiantes</h2>
+            <table border="1">
+                <thead><!-- Table Head = Cabecera de tabla-->
+                    <tr><!-- Table Row = Fila -->
+                        <th>Nombre</th>
+                        <th>Edad</th>
+                        <th>Dato curioso</th>
+                    </tr>
+                </thead>
+                <tbody><!-- Table Body = Cuerpo de la tabla -->
+                    <tr>
+                        <td>Martin</td>
+                        <td>23</td>
+                        <td>Tiene marcas de nacimiento</td>
+                    </tr>
+                    <tr>
+                        <td>Pablo</td>
+                        <td>26</td>
+                        <td>Le gustan las matemáticas</td>
+                    </tr>
+                    <tr>
+                        <td>Carolina</td>
+                        <td>27</td>
+                        <td>Le gusta el Techno</td>
+                    </tr>
+                </tbody>
+                <tfoot><!-- Table Foot = Pie de Tabla -->
+                    <tr>
+                        <!-- Atributo colspan permite unir o combinar celdas -->
+                        <td colspan="3">Total de estudiantes: 3</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+        <section id="contacto">
+            <h2>Formulario de Contacto</h2>
+            <!-- Los formularios llevan un atributo action que indica la URL hacia donde van a hacer la petición -->
+            <form action="http://127.0.0.1:5500/api/estudiantes/nuevo" method="post">
+                <label for="nombre">Indica tu nombre</label>
+                <br>
+                <input type="text" name="nombre" id="nombre" required>
+                <br>
+                <label for="edad">Indica tu edad</label>
+                <br>
+                <input type="number" name="edad" id="edad">
+                <br>
+                <label for="dato">Indica un dato curioso</label>
+                <br>
+                <input type="text" name="dato" id="dato">
+                <br>
+                <label for="password">Indica tu password</label>
+                <br>
+                <input type="password" name="password" id="password">
+                <br>
+                <button type="submit">Guardar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Pie de página -->
+         <p>Pie de página</p>
+    </footer>
+    
+</body>
+</html>
