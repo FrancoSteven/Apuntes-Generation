@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!-- Esto es un comentario -->
+<!-- Esto es otro comentario -->
+<html lang="es"><!-- Atributo lang indica el lenguaje del documento -->
+
+<head>  <!-- Encabezado -->
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Primera Página</title> 
+</head>
+<body>
+    <!-- Acá van a verse reflejados nuestros elementos -->
+    <!-- Títulos -->
+    <h1>Bienvenid@ a la página</h1>
+    <!-- La idea es que una página tenga sólo un h1 -->
+    <h2>Subtítulo</h2>
+    <h3>Subtítulo</h3>
+    <h4>Subtítulo</h4>
+    <h5>Subtítulo</h5>
+    <h6 style="color: aqua;">Subtítulo</h6>
+
+    <!-- Parrafos y saltos de línea -->
+    <h2>Párrafos</h2>
+    <p>Esto es un párrafo</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius blanditiis dolor atque laudantium sapiente laboriosam nostrum provident reprehenderit? Quis dignissimos consectetur a nesciunt veniam optio officia deleniti temporibus sint facere?</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam dolor sit veritatis eum, dicta est, debitis sapiente quidem quod laborum doloremque quae rem ipsa deserunt illum consectetur vitae iure suscipit. Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Reprehenderit praesentium saepe ad aperiam libero quidem. Accusantium perferendis quasi, obcaecati earum dolores sunt rerum, consequatur quae, atque maxime aspernatur qui dolore!</p>
+
+    <!-- Etiquetas para enlazar URL e imágenes -->
+    <h2>Enlaces</h2>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head">
+        Documentación de MDN
+    </a>
+    <br>
+    <a href="https://google.com" target="_blank">
+        Enlace a Google
+    </a>
+    <br>
+
+    <!-- Para enlazar una imagen usamos la etiqueta img con el atributo src para indicar la fuente -->
+    <h2>Imágenes</h2>
+    <img src="hackerman.png" alt="Foto de Hackerman siendo un pro" width="200px" height="200px">
+
+    <!-- Listas ordenadas y sin orden -->
+    <h2>Listas</h2>
+    <h3>Personajes más fuertes del animé</h3>
+    <a><!-- Ordered List-->
+        <li>Saitama</li><!-- List Item -->
+        <!-- Para usar una imagen como enlace a una página, encerramos la etiqueta img dentro de la etiqueta anchor a -->
+            <a href="https://onepunchman.fandom.com/es/wiki/Saitama">
+                <img src="https://sm.ign.com/t/ign_latam/screenshot/default/chechi_ewwz.1280.jpg" width="100px" height="100px">
+            </a>
+        <li>Gokú</li>
+            <a href="https://es.wikipedia.org/wiki/Son_Gok%C5%AB">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVXsvaJozkL-Rk-SBGbaRKAvZra4tG-UgZdg&s" alt="Gokú digievolucionando"> 
+            </a>
+
+        <li>Guts</li>
+    </ol>
+
+    <h3>Lista de supermercado</h3>
+    <ul><!-- Unordered List -->
+        <li>Queso</li>
+        <!-- Lista ordenada anidada dentro de una lista desordenada -->
+        <ol>
+            <li>Queso azul</li>
+            <li>Queso mantecoso</li>
+        </ol>
+        <li>Jamón</li>
+        <li>Tomate</li>
+    </ul>
+
+
+    <h2>Formularios</h2>
+    <!-- Los formularios van encerrados en etiqueta form -->
+    <form action="">
+        <!-- Los campos del formulario se crean con la etiqueta input y los nombres de cada campo con la etiqueta label -->
+        <label for="nombre">Ingresa tu nombre<label>
+        <br>
+        <input type="text">
+        <br>
+        <label for="edad">Ingresa tu edad</label>
+        <br>
+        <input type="number" name="edad" id="">
+        <br>
+        <label for="email">Ingresa tu mail</label>
+        <br>
+        <input type="email" name="email" id="">
+        <br>
+        <!-- Los formularios terminan con un boton de tipo submit, para gatillar la acción de enviar -->
+        <button type="submit">Enviar</button>
+    </form>
+
+    <h2>Elementos de bloque y de línea</h2>
+    <!-- Para organizar distintos elementos dentro de un bloque usamos la etiqueta div -->
+    <div style="color: blue">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores placeat dolores consectetur vero animi delectus impedit, ut expedita. Provident repellat esse debitis doloremque eaque aperiam, inventore accusamus maiores ullam? Expedita!</p>
+        <p>Soy un elemento dentro del div</p>
+    </div>
+    <div style="background-color: red;">
+        <!-- Para organizar elementos pero dentro de la misma línea usamos la etiqueta span -->
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit itaque, odit in, neque tempore dolor <span><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum molestias repudiandae debitis porro soluta, consectetur nisi dicta ipsam ipsum animi corporis voluptatibus! Soluta asperiores explicabo, cumque libero aliquam et? Sit?</p></span>autem totam odio placeat eligendi suscipit repellat rem culpa maiores voluptate exercitationem quia, doloribus natus? <br>
+        <img src="https://www.univision.com/proxy/api/cached/picture?href=https%3A%2F%2Fuvn-brightspot.s3.amazonaws.com%2Fassets%2Fvixes%2Fp%2Fpatitos_de_hule_experimento.jpg&width=0&height=0&ratio_width=1240&ratio_height=698&format=webp" alt="">
+    </div>
+
+
+</body>
+</html>
