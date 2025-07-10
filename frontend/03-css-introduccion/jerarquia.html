@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo de Especificidad CSS</title>
+  <style>
+    /* Selector de tipo: baja especificidad */
+    p {
+      color: gray;
+    }
+
+    /* Selector de clase: más específico */
+    .texto {
+      color: green;
+    }
+
+    /* Selector de ID: aún más específico */
+    #mensaje {
+      color: blue;
+    }
+
+    /* Estilo en línea: casi la más alta prioridad */
+    /* Se agrega directamente en el HTML */
+
+    /* !important: la máxima prioridad, anula todo */
+    .texto-importante {
+      color: red !important;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Jerarquía de Selectores CSS</h1>
+
+  <p>Este párrafo tiene solo el selector de tipo (<code>p</code>). Se verá en gris.</p>
+
+  <p class="texto">Este párrafo usa una clase (<code>.texto</code>). Se verá en verde.</p>
+
+  <p id="mensaje" class="texto">Este usa ID (<code>#mensaje</code>) + clase. Se verá en azul porque el ID tiene mayor peso.</p>
+
+  <p style="color: orange;">Este tiene estilo en línea. Se verá en naranja, ignorando los estilos anteriores.</p>
+
+  <p class="texto texto-importante" style="color: orange;">Este tiene clase + <code>!important</code>. Se verá en rojo porque <code>!important</code> gana.</p>
+
+</body>
+</html>
