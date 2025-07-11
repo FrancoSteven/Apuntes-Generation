@@ -1,0 +1,269 @@
+/* ==== ESTILO GENERAL ==== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
+}
+.page-header, .page-footer {
+  text-align: center;
+  background: #222;
+  color: white;
+  padding: 2rem 1rem;
+}
+.examples-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+.ejemplo {
+  margin-bottom: 3rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.ejemplo h2 {
+  color: #0066cc;
+  margin-bottom: 1rem;
+}
+.placeholder {
+  padding: 2rem;
+  text-align: center;
+  border: 2px dashed #ccc;
+  background-color: #fafafa;
+  color: #999;
+  font-style: italic;
+}
+.ejemplo img {
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* ==== Ejemplo 01 - Flexbox dirección ==== */
+.ejemplo-01 .content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+.ejemplo-01 img {
+  width: 100px;
+  height: 100px;
+}
+
+/* ==== Ejemplo 02 - Grid con áreas ==== */
+.ejemplo-02 .content {
+  display: grid;
+  grid-template-areas:
+    "a b c"
+    "a b c";
+  gap: 10px;
+}
+.ejemplo-02 img:nth-child(1) { grid-area: a; }
+.ejemplo-02 img:nth-child(2) { grid-area: b; }
+.ejemplo-02 img:nth-child(3) { grid-area: c; }
+.ejemplo-02 img {
+  width: 100%;
+  height: 100px;
+}
+
+/* ==== Ejemplo 03 - Position absolute/relative ==== */
+.ejemplo-03 .content {
+  position: relative;
+  height: 200px;
+}
+.ejemplo-03 img {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
+.ejemplo-03 img:nth-child(1) { top: 0; left: 0; }
+.ejemplo-03 img:nth-child(2) { top: 50px; left: 50px; }
+.ejemplo-03 img:nth-child(3) { top: 100px; left: 100px; }
+
+/* ==== Ejemplo 04 - Float ==== */
+.ejemplo-04 .content {
+  overflow: auto;
+}
+.ejemplo-04 img {
+  float: left;
+  margin-right: 10px;
+  width: 100px;
+  height: 100px;
+}
+
+/* ==== Ejemplo 05 - Transform hover ==== */
+.ejemplo-05 .content {
+  display: flex;
+  gap: 1rem;
+}
+.ejemplo-05 img {
+  transition: transform 0.3s ease;
+  width: 100px;
+  height: 100px;
+}
+.ejemplo-05 img:hover {
+  transform: scale(1.2) rotate(10deg);
+}
+
+/* ==== Ejemplo 06 - Grid Responsive ==== */
+.ejemplo-06 .content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+}
+.ejemplo-06 img {
+  width: 100%;
+  height: 100px;
+}
+
+/* ==== Ejemplo 07 - Flex-wrap ==== */
+.ejemplo-07 .content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.ejemplo-07 img {
+  width: 100px;
+  height: 100px;
+}
+
+/* ==== Ejemplo 08 - object-fit ==== */
+.ejemplo-08 .content {
+  display: flex;
+  gap: 1rem;
+}
+.ejemplo-08 img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+/* ==== Ejemplo 09 - clip-path ==== */
+.ejemplo-09 .content {
+  display: flex;
+  gap: 1rem;
+}
+.ejemplo-09 img {
+  width: 100px;
+  height: 100px;
+  clip-path: circle(50%);
+}
+
+/* ==== Ejemplo 10 - aspect-ratio ==== */
+.ejemplo-10 .content {
+  display: flex;
+  gap: 1rem;
+}
+.ejemplo-10 img {
+  width: 100px;
+  aspect-ratio: 1 / 1;
+}
+
+/* ==== Ejemplo 11 - Sticky Header ==== */
+.page-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* ==== Ejemplo 12 - Grid fr y auto-fill ==== */
+.ejemplo-12 .content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+}
+.ejemplo-12 img {
+  width: 100%;
+  height: 100px;
+}
+
+/* ==== Ejemplo 13 - Flex-grow/shrink/basis ==== */
+.ejemplo-13 .content {
+  display: flex;
+}
+.ejemplo-13 img {
+  flex: 1 1 0;
+  min-width: 80px;
+  height: 100px;
+  margin: 5px;
+}
+
+/* ==== Ejemplo 14 - Keyframes animation ==== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.ejemplo-14 .content img {
+  animation: fadeIn 1s ease-in;
+  width: 100px;
+  height: 100px;
+}
+
+/* ==== Ejemplo 15 - Hover + transition ==== */
+.ejemplo-15 .content {
+  display: flex;
+  gap: 1rem;
+}
+.ejemplo-15 img {
+  width: 100px;
+  height: 100px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.ejemplo-15 img:hover {
+  background-color: lightblue;
+  transform: scale(1.1);
+}
+
+/* ==== Ejemplo 16 - Media Queries ==== */
+.ejemplo-16 .content {
+  display: flex;
+  gap: 1rem;
+}
+.ejemplo-16 img {
+  width: 80px;
+  height: 80px;
+}
+@media screen and (min-width: 768px) {
+  .ejemplo-16 img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* ==== Ejemplo 17 - Z-index ==== */
+.ejemplo-17 .content {
+  position: relative;
+  height: 150px;
+}
+.ejemplo-17 img {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
+.ejemplo-17 img:nth-child(1) { z-index: 1; left: 0; }
+.ejemplo-17 img:nth-child(2) { z-index: 2; left: 40px; }
+.ejemplo-17 img:nth-child(3) { z-index: 3; left: 80px; }
+
+/* ==== Ejemplo 18 - Variables CSS ==== */
+:root {
+  --color-bg: #e0f7fa;
+}
+.ejemplo-18 {
+  background-color: var(--color-bg);
+}
+.ejemplo-18 .content {
+  display: flex;
+  gap: 1rem;
+}
+.ejemplo-18 img {
+  width: 100px;
+  height: 100px;
+}

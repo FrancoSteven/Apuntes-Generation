@@ -1,0 +1,52 @@
+/* Estilos generales */
+
+body {
+    font-family: Arial, sans-serif; 
+    margin: 0; 
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border: 2px solid #333;
+    border-radius: 10px;
+}
+
+/* Flexbox */
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ffcc00;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    background-color: #00ccff;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Alineación con Flexbox */
+.align-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: #ff6666;
+    padding: 20px;
+    margin-bottom: 20px;
+}

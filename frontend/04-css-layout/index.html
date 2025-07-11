@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplos de CSS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="flex-container">
+            <img src="https://dragonball-api.com/characters/goku_normal.webp" alt="Goku">
+            <img src="https://dragonball-api.com/characters/Bardock_Artwork.webp" alt="Bardock">
+            <img src="https://dragonball-api.com/characters/Jiren.webp" alt="Jiren">
+        </div>
+
+        <div class="grid-container">
+            <img src="https://dragonball-api.com/characters/goku_normal.webp" alt="Goku">
+            <img src="https://dragonball-api.com/characters/Bardock_Artwork.webp" alt="Bardock">
+            <img src="https://dragonball-api.com/characters/Jiren.webp" alt="Jiren">
+        </div>
+
+        <div class="align-container">
+            <img src="https://dragonball-api.com/characters/goku_normal.webp" alt="Goku">
+            <img src="https://dragonball-api.com/characters/Bardock_Artwork.webp" alt="Bardock">
+            <img src="https://dragonball-api.com/characters/Jiren.webp" alt="Jiren">
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- Explicación:
+Flexbox:
+
+.flex-container: Utilizamos display: flex para crear un contenedor flexible. justify-content: space-around distribuye el espacio alrededor de los elementos, y align-items: center centra los elementos verticalmente.
+
+Grid:
+
+.grid-container: Usamos display: grid para crear un contenedor de cuadrícula. grid-template-columns: repeat(3, 1fr) crea tres columnas de igual tamaño, y gap: 10px añade un espacio entre los elementos.
+
+Alineación con Flexbox:
+
+.align-container: Aquí usamos justify-content: center para centrar los elementos horizontalmente y align-items: flex-end para alinearlos al final del contenedor verticalmente.
+
+-->

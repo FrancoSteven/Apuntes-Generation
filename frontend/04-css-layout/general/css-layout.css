@@ -1,0 +1,256 @@
+/* =====================
+   1. POSITION
+   ===================== */
+.position-demo {
+  position: relative;
+  height: 120px;
+  background: #e3e3e3;
+  margin-bottom: 16px;
+  overflow: visible;
+}
+.pos {
+  width: 90px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  position: static;
+  margin: 0 8px;
+  display: inline-block;
+}
+.pos.static { background: #888; }
+.pos.relative {
+  background: #2ecc40;
+  position: relative;
+  left: 30px;
+  top: 10px;
+}
+.pos.absolute {
+  background: #0074d9;
+  position: absolute;
+  left: 180px;
+  top: 40px;
+  z-index: 2;
+}
+.pos.fixed {
+  background: #ff4136;
+  position: fixed;
+  right: 30px;
+  top: 30px;
+  z-index: 99;
+  box-shadow: 0 0 8px #0004;
+}
+.pos.sticky {
+  background: #b10dc9;
+  position: sticky;
+  left: 0;
+  top: 0;
+}
+
+/* =====================
+   2. Z-INDEX
+   ===================== */
+.zindex-demo {
+  position: relative;
+  width: 350px;
+  height: 140px;
+  margin: 24px auto;
+  border: 2px dashed #aaa;
+}
+.zbox {
+  position: absolute;
+  width: 140px;
+  height: 90px;
+  color: #fff;
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #0002;
+}
+.z1 {
+  background: #2ecc40;
+  top: 40px;
+  left: 20px;
+  z-index: 1;
+}
+.z2 {
+  background: #ff4136;
+  top: 70px;
+  left: 120px;
+  z-index: 2;
+}
+.z3 {
+  background: #0074d9;
+  top: 0;
+  left: 80px;
+  z-index: 3;
+}
+
+/* =====================
+   3. BOX-SIZING
+   ===================== */
+.box-sizing-demo {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 12px;
+}
+.box {
+  width: 120px;
+  height: 60px;
+  border: 4px solid #0074d9;
+  padding: 16px;
+  background: #b3e6ff;
+  margin: 0 8px;
+  box-sizing: content-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.box-content { box-sizing: content-box; }
+.box-border {
+  box-sizing: border-box;
+  background: #ffe6b3;
+}
+
+/* =====================
+   4. OVERFLOW
+   ===================== */
+.overflow-demo {
+  display: flex;
+  gap: 16px;
+}
+.overflow-box {
+  width: 90px;
+  height: 60px;
+  border: 2px solid #bbb;
+  background: #f3f3f3;
+  font-size: 0.9em;
+  padding: 6px;
+  overflow: visible;
+}
+.overflow-visible { overflow: visible; }
+.overflow-hidden { overflow: hidden; }
+.overflow-scroll { overflow: scroll; }
+.overflow-auto { overflow: auto; }
+.overflow-box::after {
+  content: "Texto muy largo que se desborda";
+  color: #888;
+}
+
+/* =====================
+   5. MARGIN Y PADDING
+   ===================== */
+.mp-demo {
+  background: #e3e3e3;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+}
+.mp-box {
+  background: #ffb3b3;
+  border: 2px solid #c00;
+  margin: 24px;
+  padding: 18px 32px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+/* =====================
+   6. ASPECT-RATIO
+   ===================== */
+.aspect-demo {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 12px;
+}
+.aspect-box {
+  background: #b3e6ff;
+  border: 2px solid #0074d9;
+  aspect-ratio: 16/9;
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-weight: bold;
+}
+.aspect-box.square {
+  aspect-ratio: 1/1;
+  background: #ffe6b3;
+  border-color: #e6b300;
+}
+
+/* =====================
+   7. GAP
+   ===================== */
+.gap-demo {
+  display: flex;
+  gap: 18px;
+  margin-top: 12px;
+}
+.gap-item {
+  display: inline-block;
+  background: #b3e6ff;
+  border: 2px solid #0074d9;
+  border-radius: 6px;
+  padding: 12px 24px;
+}
+
+/* =====================
+   8. POINTER-EVENTS Y CURSOR
+   ===================== */
+.btn {
+  padding: 12px 28px;
+  margin: 8px;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 6px;
+  background: #0074d9;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn.disabled {
+  background: #aaa;
+  color: #eee;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+.cursor-demo {
+  display: flex;
+  gap: 16px;
+  margin: 24px 0;
+}
+.cuadro {
+  width: 100px;
+  height: 60px;
+  background: #eee;
+  border: 2px solid #bbb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95em;
+  border-radius: 8px;
+  transition: box-shadow 0.2s;
+}
+.cuadro.pointer {
+  cursor: pointer;
+  background: #b3e6ff;
+}
+.cuadro.crosshair {
+  cursor: crosshair;
+  background: #ffe6b3;
+}
+.cuadro.wait {
+  cursor: wait;
+  background: #e6b3ff;
+}
+.cuadro.not-allowed {
+  cursor: not-allowed;
+  background: #ffb3b3;
+}

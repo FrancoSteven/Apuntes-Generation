@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplos educativos de CSS Layout</title>
+    <link rel="stylesheet" href="css-layout.css">
+</head>
+
+<body>
+    <h1>Ejemplos educativos de CSS Layout moderno</h1>
+    <section>
+        <h2>1. <code>position</code>: static, relative, absolute, fixed, sticky</h2>
+        <div class="position-demo">
+            <div class="pos static">static</div>
+            <div class="pos relative">relative</div>
+            <div class="pos absolute">absolute</div>
+            <div class="pos fixed">fixed</div>
+            <div class="pos sticky">sticky</div>
+        </div>
+        <ul>
+            <li><b>static</b>: Posición por defecto, sigue el flujo normal.</li>
+            <li><b>relative</b>: Se mueve respecto a su posición original.</li>
+            <li><b>absolute</b>: Se posiciona respecto al ancestro posicionado más cercano.</li>
+            <li><b>fixed</b>: Se posiciona respecto a la ventana del navegador.</li>
+            <li><b>sticky</b>: Se comporta como relative hasta que se "pega" al hacer scroll.</li>
+        </ul>
+    </section>
+    <section>
+        <h2>2. <code>z-index</code></h2>
+        <div class="zindex-demo">
+            <div class="zbox z1">z-index: 1</div>
+            <div class="zbox z3">z-index: 3</div>
+            <div class="zbox z2">z-index: 2</div>
+        </div>
+        <p>Controla el orden de apilamiento de elementos posicionados. Un valor mayor se muestra encima.</p>
+    </section>
+    <section>
+        <h2>3. <code>box-sizing</code></h2>
+        <div class="box-sizing-demo">
+            <div class="box box-content">content-box</div>
+            <div class="box box-border">border-box</div>
+        </div>
+        <p><code>content-box</code> (por defecto): el tamaño solo incluye el contenido.<br>
+            <code>border-box</code>: el tamaño incluye padding y borde.
+        </p>
+    </section>
+    <section>
+        <h2>4. <code>overflow</code></h2>
+        <div class="overflow-demo">
+            <div class="overflow-box overflow-visible">visible</div>
+            <div class="overflow-box overflow-hidden">hidden</div>
+            <div class="overflow-box overflow-scroll">scroll</div>
+            <div class="overflow-box overflow-auto">auto</div>
+        </div>
+        <p>Controla qué pasa cuando el contenido se desborda del contenedor.</p>
+    </section>
+    <section>
+        <h2>5. <code>margin</code> y <code>padding</code></h2>
+        <div class="mp-demo">
+            <div class="mp-box">margin<br>padding</div>
+        </div>
+        <p><code>margin</code>: espacio fuera del borde.<br>
+            <code>padding</code>: espacio dentro del borde.
+        </p>
+    </section>
+    <section>
+        <h2>6. <code>aspect-ratio</code></h2>
+        <div class="aspect-demo">
+            <div class="aspect-box">aspect-ratio: 16/9</div>
+            <div class="aspect-box square">aspect-ratio: 1/1</div>
+        </div>
+        <p>Mantiene la proporción del ancho y alto del elemento.</p>
+    </section>
+    <section>
+        <h2>7. <code>gap</code> fuera de flex y grid</h2>
+        <div class="gap-demo">
+            <div class="gap-item">A</div>
+            <div class="gap-item">B</div>
+            <div class="gap-item">C</div>
+        </div>
+        <p><code>gap</code> ahora funciona también en contenedores con <code>display: flex</code> y otros contextos.</p>
+    </section>
+    <section>
+        <h2>8. <code>pointer-events</code> y <code>cursor</code></h2>
+        <div>
+            <button class="btn normal">Botón normal</button>
+            <button class="btn disabled">pointer-events: none</button>
+        </div>
+        <div class="cursor-demo">
+            <div class="cuadro pointer">cursor: pointer</div>
+            <div class="cuadro crosshair">cursor: crosshair</div>
+            <div class="cuadro wait">cursor: wait</div>
+            <div class="cuadro not-allowed">cursor: not-allowed</div>
+        </div>
+        <p><code>pointer-events</code> controla si un elemento recibe eventos del mouse.<br>
+            <code>cursor</code> cambia el icono del puntero al pasar sobre el elemento.
+        </p>
+    </section>
+</body>
+
+</html>
