@@ -1,252 +1,160 @@
-# 🚀 Bootstrap 5 - Guía Express para Bootcamp 
-
-> **⏰ URGENTE:** Esta guía contiene TODO lo que necesitas saber de Bootstrap en 2 horas. Enfócate en los conceptos marcados con 🔥 - son los más importantes para conseguir tu primer trabajo.
-
-## 📋 Contenido Express
-
-1. [🎯 ¿Qué es Bootstrap y por qué lo necesitas?](#qué-es-bootstrap)
-2. [⚡ Setup rápido](#setup-rápido)
-3. [🔥 Sistema de Grid - EL MÁS IMPORTANTE](#sistema-de-grid)
-4. [💪 Componentes esenciales](#componentes-esenciales)
-5. [🎨 Utilidades que debes conocer](#utilidades-esenciales)
-6. [📱 Responsive automático](#responsive)
-7. [🛠️ Proyecto práctico](#proyecto-práctico)
-8. [❌ Errores que debes evitar](#errores-comunes)
-
----
+# Bootstrap y Librerías CSS
 
 ## 🎯 ¿Qué es Bootstrap?
 
-**Bootstrap = CSS + JavaScript pre-construido**
+Bootstrap es un framework CSS creado por Twitter que te permite crear interfaces responsivas, estéticas y funcionales rápidamente, sin escribir todo desde cero. Es como tener un "kit de herramientas" con componentes prediseñados.
 
-### ✅ **Ventajas:**
-- **Rapidez:** Creas layouts en minutos, no horas
-- **Responsive:** Funciona en todos los dispositivos automáticamente
-- **Profesional:** Diseño consistente y moderno
-- **Empleo:** Lo usan el 90% de las empresas
+### 📊 Estadísticas importantes:
 
-### ❌ **Desventajas:**
-- Todos los sitios se parecen (si no lo personalizas)
-- Archivo pesado (si no lo optimizas)
+- Usado por más del 22% de sitios web a nivel mundial
+- Más de 150,000 estrellas en GitHub
+- Compatible con todos los navegadores modernos
 
-### 🎯 **¿Cuándo usarlo?**
-- ✅ Prototipos rápidos
-- ✅ Proyectos con poco tiempo
-- ✅ Equipos grandes (consistencia)
-- ✅ Cuando no tienes diseñador
+## ✅ ¿Cuándo CONVIENE usarlo?
 
----
+- Cuando necesitas prototipar rápido
+- En equipos sin diseñador UX/UI
+- Cuando buscas compatibilidad multiplataforma inmediata
+- Para formularios, layouts, botones, cards, modales, etc. listos para usar
+- En proyectos con deadlines ajustados
+- Para mantener consistencia visual en equipos grandes
 
-## ⚡ Setup rápido
+## ❌ ¿Cuándo NO conviene usarlo?
 
-### 🔥 **Opción 1: CDN (Más rápido)**
+- Cuando necesitas un diseño personalizado o 100% distinto a lo predefinido
+- En sitios que requieren máxima optimización y ligereza
+- Si ya usas otro framework como Tailwind CSS o Material UI
+- Para sitios web muy simples (landing pages básicas)
+- Cuando el cliente exige un diseño único y diferenciador
+
+## 🧠 Buenas prácticas
+
+| ✅ Hacer esto                                             | ❌ No hacer esto                                             |
+| --------------------------------------------------------- | ------------------------------------------------------------ |
+| Usar clases predefinidas como btn, container, row, col    | Sobreescribir clases Bootstrap directamente                  |
+| Crear una clase personalizada para ajustes                | Modificar el archivo bootstrap.css original                  |
+| Leer la documentación oficial antes de usar un componente | Usar componentes al azar sin saber cómo funcionan            |
+| Incluir Bootstrap por CDN para pruebas / prototipos       | Incluir Bootstrap desde varias fuentes o versiones distintas |
+| Usar npm install bootstrap en proyectos escalables        | Cargar desde CDN en producción sin control de versiones      |
+
+## 🔧 Cómo incluir Bootstrap
+
+### 👉 Opción rápida (CDN)
 
 ```html
-<!DOCTYPE html>
-<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi App Bootstrap</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
 </head>
 <body>
-    
-    <!-- Tu contenido aquí -->
-    
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Tu contenido aquí -->
+
+  <!-- JS al final del body -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
 ```
 
-### 🔥 **Opción 2: NPM (Para proyectos reales)**
+### 👉 Opción profesional (npm)
 
 ```bash
 npm install bootstrap
 ```
 
-```html
-<!-- En tu HTML -->
-<link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+En tu archivo JS/SCSS:
+
+```js
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 ```
 
----
+## 🧩 Componentes más usados (con ejemplos)
 
-## 🔥 Sistema de Grid - EL MÁS IMPORTANTE
-
-### 🎯 **Concepto clave:** Bootstrap usa 12 columnas
-
-```
-[1] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12]
-```
-
-### 🔧 **Estructura básica:**
+### ✅ Botones (.btn)
 
 ```html
-<div class="container">        <!-- Contenedor principal -->
-  <div class="row">           <!-- Fila -->
-    <div class="col">         <!-- Columna -->
-      Contenido
-    </div>
-  </div>
-</div>
+<button class="btn btn-primary">Aceptar</button>
+<button class="btn btn-danger">Eliminar</button>
+<button class="btn btn-outline-secondary">Cancelar</button>
+<button class="btn btn-success btn-lg">Botón Grande</button>
+<button class="btn btn-warning btn-sm">Botón Pequeño</button>
 ```
 
-### 💪 **Ejemplos prácticos:**
+### ✅ Sistema de columnas (.container, .row, .col)
 
-#### **2 columnas iguales:**
 ```html
 <div class="container">
   <div class="row">
     <div class="col-6">Columna 1</div>
     <div class="col-6">Columna 2</div>
   </div>
-</div>
-```
-
-#### **3 columnas iguales:**
-```html
-<div class="container">
   <div class="row">
-    <div class="col-4">Columna 1</div>
-    <div class="col-4">Columna 2</div>
-    <div class="col-4">Columna 3</div>
+    <div class="col-md-4">Responsive 1</div>
+    <div class="col-md-4">Responsive 2</div>
+    <div class="col-md-4">Responsive 3</div>
   </div>
 </div>
 ```
 
-#### **Columnas desiguales:**
-```html
-<div class="container">
-  <div class="row">
-    <div class="col-8">Contenido principal</div>
-    <div class="col-4">Sidebar</div>
-  </div>
-</div>
-```
+**📌 Tip:** Usa `container-fluid` si necesitas que el contenido ocupe todo el ancho de pantalla.
 
-#### **Columnas automáticas:**
-```html
-<div class="container">
-  <div class="row">
-    <div class="col">Auto 1</div>
-    <div class="col">Auto 2</div>
-    <div class="col">Auto 3</div>
-  </div>
-</div>
-```
-
-### 🔥 **Responsive Grid (MUY IMPORTANTE):**
-
-```html
-<div class="container">
-  <div class="row">
-    <div class="col-12 col-md-6 col-lg-4">
-      <!-- Móvil: 100% ancho -->
-      <!-- Tablet: 50% ancho -->
-      <!-- Desktop: 33% ancho -->
-    </div>
-  </div>
-</div>
-```
-
-#### **Breakpoints que debes memorizar:**
-- `col-` = Móvil (siempre)
-- `col-md-` = Tablet (768px+)
-- `col-lg-` = Desktop (992px+)
-- `col-xl-` = Desktop grande (1200px+)
-
----
-
-## 💪 Componentes esenciales
-
-### 🔥 **1. Navbar (Navegación)**
-
-```html
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand" href="#">Mi Logo</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Sobre</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contacto</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-```
-
-### 🔥 **2. Cards (Tarjetas)**
-
-```html
-<div class="card" style="width: 18rem;">
-  <img src="imagen.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Título</h5>
-    <p class="card-text">Descripción del producto...</p>
-    <a href="#" class="btn btn-primary">Comprar</a>
-  </div>
-</div>
-```
-
-### 🔥 **3. Buttons (Botones)**
-
-```html
-<!-- Colores principales -->
-<button class="btn btn-primary">Primario</button>
-<button class="btn btn-secondary">Secundario</button>
-<button class="btn btn-success">Éxito</button>
-<button class="btn btn-danger">Peligro</button>
-<button class="btn btn-warning">Advertencia</button>
-
-<!-- Tamaños -->
-<button class="btn btn-primary btn-lg">Grande</button>
-<button class="btn btn-primary">Normal</button>
-<button class="btn btn-primary btn-sm">Pequeño</button>
-
-<!-- Estilos -->
-<button class="btn btn-outline-primary">Outline</button>
-```
-
-### 🔥 **4. Forms (Formularios)**
+### ✅ Formulario básico
 
 ```html
 <form>
   <div class="mb-3">
-    <label for="email" class="form-label">Email</label>
-    <input type="email" class="form-control" id="email" placeholder="tu@email.com">
+    <label class="form-label">Correo</label>
+    <input type="email" class="form-control" placeholder="tu@email.com" />
   </div>
   <div class="mb-3">
-    <label for="password" class="form-label">Contraseña</label>
-    <input type="password" class="form-control" id="password">
+    <label class="form-label">Contraseña</label>
+    <input type="password" class="form-control" />
   </div>
   <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="remember">
-    <label class="form-check-label" for="remember">Recordarme</label>
+    <input type="checkbox" class="form-check-input" id="check1" />
+    <label class="form-check-label" for="check1">Recordarme</label>
   </div>
-  <button type="submit" class="btn btn-primary">Enviar</button>
+  <button type="submit" class="btn btn-success">Enviar</button>
 </form>
 ```
 
-### 🔥 **5. Modal (Ventana emergente)**
+### ✅ Alerta (.alert)
 
 ```html
-<!-- Botón para abrir modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#miModal">
-  Abrir Modal
+<div class="alert alert-warning" role="alert">
+  ¡Este es un mensaje de advertencia!
+</div>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  ¡Operación exitosa!
+  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+</div>
+```
+
+### ✅ Card (Tarjeta)
+
+```html
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="..." />
+  <div class="card-body">
+    <h5 class="card-title">Título de la tarjeta</h5>
+    <p class="card-text">Descripción del contenido.</p>
+    <a href="#" class="btn btn-primary">Ir a algún lugar</a>
+  </div>
+</div>
+```
+
+### ✅ Modal (requiere JS de Bootstrap)
+
+```html
+<!-- Botón -->
+<button
+  class="btn btn-primary"
+  data-bs-toggle="modal"
+  data-bs-target="#miModal"
+>
+  Abrir modal
 </button>
 
 <!-- Modal -->
@@ -254,444 +162,275 @@ npm install bootstrap
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Título del Modal</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        <h5 class="modal-title">Título del modal</h5>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
       </div>
-      <div class="modal-body">
-        <p>Contenido del modal aquí...</p>
-      </div>
+      <div class="modal-body">Contenido del modal.</div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+        <button type="button" class="btn btn-primary">Guardar cambios</button>
       </div>
     </div>
   </div>
 </div>
 ```
 
----
+## 🧱 Tabla COMPLETA de clases Bootstrap 5
 
-## 🎨 Utilidades esenciales
+### 📐 Layout y Contenedores
 
-### 🔥 **Spacing (Espaciado)**
+| Clase                       | Descripción                          | Ejemplo                         |
+| --------------------------- | ------------------------------------ | ------------------------------- |
+| `container`                 | Contenedor con márgenes fijos        | `<div class="container">`       |
+| `container-fluid`           | Contenedor sin márgenes (100% ancho) | `<div class="container-fluid">` |
+| `container-sm/md/lg/xl/xxl` | Contenedores responsivos             | `<div class="container-md">`    |
+| `row`                       | Fila del sistema de grillas          | `<div class="row">`             |
+| `col-*`                     | Columnas (1-12)                      | `<div class="col-6">`           |
+| `col-sm/md/lg/xl/xxl-*`     | Columnas responsivas                 | `<div class="col-md-4">`        |
 
-```html
-<!-- Margin -->
-<div class="m-0">Sin margin</div>
-<div class="m-1">Margin pequeño</div>
-<div class="m-3">Margin normal</div>
-<div class="m-5">Margin grande</div>
+### 🎨 Botones
 
-<!-- Padding -->
-<div class="p-0">Sin padding</div>
-<div class="p-1">Padding pequeño</div>
-<div class="p-3">Padding normal</div>
-<div class="p-5">Padding grande</div>
+| Clase                                                          | Descripción             | Ejemplo                                    |
+| -------------------------------------------------------------- | ----------------------- | ------------------------------------------ |
+| `btn`                                                          | Botón base              | `<button class="btn">`                     |
+| `btn-primary/secondary/success/danger/warning/info/light/dark` | Colores de botón        | `<button class="btn btn-primary">`         |
+| `btn-outline-*`                                                | Botones con borde       | `<button class="btn btn-outline-primary">` |
+| `btn-lg/sm`                                                    | Tamaños de botón        | `<button class="btn btn-lg">`              |
+| `btn-block`                                                    | Botón de ancho completo | `<button class="btn btn-block">`           |
 
-<!-- Direcciones específicas -->
-<div class="mt-3">Margin top</div>
-<div class="mb-3">Margin bottom</div>
-<div class="ms-3">Margin start (izquierda)</div>
-<div class="me-3">Margin end (derecha)</div>
-<div class="mx-3">Margin horizontal</div>
-<div class="my-3">Margin vertical</div>
+### 📝 Formularios
+
+| Clase              | Descripción                  | Ejemplo                            |
+| ------------------ | ---------------------------- | ---------------------------------- |
+| `form-control`     | Input básico                 | `<input class="form-control">`     |
+| `form-label`       | Etiqueta de formulario       | `<label class="form-label">`       |
+| `form-check`       | Contenedor de checkbox/radio | `<div class="form-check">`         |
+| `form-check-input` | Checkbox o radio             | `<input class="form-check-input">` |
+| `form-check-label` | Etiqueta de checkbox/radio   | `<label class="form-check-label">` |
+| `form-select`      | Select dropdown              | `<select class="form-select">`     |
+| `form-floating`    | Labels flotantes             | `<div class="form-floating">`      |
+
+### 🎯 Posicionamiento
+
+| Clase                                            | Descripción        | Ejemplo                                            |
+| ------------------------------------------------ | ------------------ | -------------------------------------------------- |
+| `position-static/relative/absolute/fixed/sticky` | Tipos de posición  | `<div class="position-fixed">`                     |
+| `top-0/50/100`                                   | Posición superior  | `<div class="position-absolute top-0">`            |
+| `bottom-0/50/100`                                | Posición inferior  | `<div class="position-absolute bottom-0">`         |
+| `start-0/50/100`                                 | Posición izquierda | `<div class="position-absolute start-0">`          |
+| `end-0/50/100`                                   | Posición derecha   | `<div class="position-absolute end-0">`            |
+| `translate-middle`                               | Centrar elemento   | `<div class="position-absolute translate-middle">` |
+
+### 📱 Display y Visibilidad
+
+| Clase                                        | Descripción             | Ejemplo                         |
+| -------------------------------------------- | ----------------------- | ------------------------------- |
+| `d-none/block/inline/inline-block/flex/grid` | Tipos de display        | `<div class="d-flex">`          |
+| `d-sm/md/lg/xl/xxl-*`                        | Display responsivo      | `<div class="d-md-none">`       |
+| `visible/invisible`                          | Visibilidad             | `<div class="invisible">`       |
+| `overflow-hidden/auto/scroll`                | Comportamiento overflow | `<div class="overflow-hidden">` |
+
+### 🔄 Flexbox
+
+| Clase                                                    | Descripción              | Ejemplo                                       |
+| -------------------------------------------------------- | ------------------------ | --------------------------------------------- |
+| `d-flex/d-inline-flex`                                   | Activar flexbox          | `<div class="d-flex">`                        |
+| `flex-row/column/row-reverse/column-reverse`             | Dirección flex           | `<div class="d-flex flex-column">`            |
+| `flex-wrap/nowrap/wrap-reverse`                          | Wrapping                 | `<div class="d-flex flex-wrap">`              |
+| `justify-content-start/center/end/between/around/evenly` | Justificación horizontal | `<div class="d-flex justify-content-center">` |
+| `align-items-start/center/end/baseline/stretch`          | Alineación vertical      | `<div class="d-flex align-items-center">`     |
+| `align-content-start/center/end/between/around/stretch`  | Alineación de contenido  | `<div class="d-flex align-content-center">`   |
+| `flex-fill/grow-0/grow-1/shrink-0/shrink-1`              | Comportamiento flex      | `<div class="flex-fill">`                     |
+
+### 📏 Spacing (Márgenes y Padding)
+
+| Clase                | Descripción                                 | Ejemplo                 |
+| -------------------- | ------------------------------------------- | ----------------------- |
+| `m-0/1/2/3/4/5/auto` | Margen en todos los lados                   | `<div class="m-3">`     |
+| `mt/mb/ms/me-*`      | Margen superior/inferior/izquierda/derecha  | `<div class="mt-2">`    |
+| `mx/my-*`            | Margen horizontal/vertical                  | `<div class="mx-auto">` |
+| `p-0/1/2/3/4/5`      | Padding en todos los lados                  | `<div class="p-4">`     |
+| `pt/pb/ps/pe-*`      | Padding superior/inferior/izquierda/derecha | `<div class="pt-3">`    |
+| `px/py-*`            | Padding horizontal/vertical                 | `<div class="px-2">`    |
+
+### 🎨 Colores
+
+| Clase                                                           | Descripción       | Ejemplo                                  |
+| --------------------------------------------------------------- | ----------------- | ---------------------------------------- |
+| `bg-primary/secondary/success/danger/warning/info/light/dark`   | Colores de fondo  | `<div class="bg-primary">`               |
+| `text-primary/secondary/success/danger/warning/info/light/dark` | Colores de texto  | `<p class="text-success">`               |
+| `text-muted/white`                                              | Texto especial    | `<p class="text-muted">`                 |
+| `bg-opacity-10/25/50/75`                                        | Opacidad de fondo | `<div class="bg-primary bg-opacity-50">` |
+
+### 📝 Texto
+
+| Clase                                         | Descripción             | Ejemplo                                 |
+| --------------------------------------------- | ----------------------- | --------------------------------------- |
+| `text-start/center/end`                       | Alineación de texto     | `<p class="text-center">`               |
+| `text-uppercase/lowercase/capitalize`         | Transformación de texto | `<p class="text-uppercase">`            |
+| `fw-bold/normal/light/lighter/bolder`         | Peso de fuente          | `<p class="fw-bold">`                   |
+| `fs-1/2/3/4/5/6`                              | Tamaño de fuente        | `<p class="fs-3">`                      |
+| `fst-italic/normal`                           | Estilo de fuente        | `<p class="fst-italic">`                |
+| `text-decoration-underline/line-through/none` | Decoración de texto     | `<p class="text-decoration-underline">` |
+
+### 🎭 Efectos Visuales
+
+| Clase                                                             | Descripción        | Ejemplo                               |
+| ----------------------------------------------------------------- | ------------------ | ------------------------------------- |
+| `rounded/rounded-circle/rounded-pill`                             | Bordes redondeados | `<div class="rounded">`               |
+| `rounded-top/bottom/start/end`                                    | Bordes específicos | `<div class="rounded-top">`           |
+| `shadow/shadow-sm/shadow-lg/shadow-none`                          | Sombras            | `<div class="shadow">`                |
+| `border/border-0`                                                 | Bordes             | `<div class="border">`                |
+| `border-top/bottom/start/end`                                     | Bordes específicos | `<div class="border-top">`            |
+| `border-primary/secondary/success/danger/warning/info/light/dark` | Colores de borde   | `<div class="border border-primary">` |
+
+### 🔔 Alertas
+
+| Clase                                                            | Descripción                | Ejemplo                                 |
+| ---------------------------------------------------------------- | -------------------------- | --------------------------------------- |
+| `alert`                                                          | Alerta base                | `<div class="alert">`                   |
+| `alert-primary/secondary/success/danger/warning/info/light/dark` | Colores de alerta          | `<div class="alert alert-success">`     |
+| `alert-dismissible`                                              | Alerta que se puede cerrar | `<div class="alert alert-dismissible">` |
+| `alert-link`                                                     | Enlaces dentro de alertas  | `<a class="alert-link">`                |
+
+### 🃏 Cards
+
+| Clase                      | Descripción          | Ejemplo                      |
+| -------------------------- | -------------------- | ---------------------------- |
+| `card`                     | Tarjeta base         | `<div class="card">`         |
+| `card-body/header/footer`  | Partes de la tarjeta | `<div class="card-body">`    |
+| `card-title/subtitle/text` | Contenido de tarjeta | `<h5 class="card-title">`    |
+| `card-img-top/bottom`      | Imágenes en tarjeta  | `<img class="card-img-top">` |
+| `card-group/deck/columns`  | Grupos de tarjetas   | `<div class="card-group">`   |
+
+### 🧭 Navegación
+
+| Clase            | Descripción           | Ejemplo                           |
+| ---------------- | --------------------- | --------------------------------- |
+| `nav`            | Navegación base       | `<nav class="nav">`               |
+| `nav-link`       | Enlaces de navegación | `<a class="nav-link">`            |
+| `nav-tabs/pills` | Estilos de navegación | `<nav class="nav nav-tabs">`      |
+| `navbar`         | Barra de navegación   | `<nav class="navbar">`            |
+| `navbar-brand`   | Logo/marca            | `<a class="navbar-brand">`        |
+| `navbar-toggler` | Botón de hamburguesa  | `<button class="navbar-toggler">` |
+| `navbar-nav`     | Lista de navegación   | `<ul class="navbar-nav">`         |
+
+### 🎪 Componentes Interactivos
+
+| Clase                                     | Descripción          | Ejemplo                            |
+| ----------------------------------------- | -------------------- | ---------------------------------- |
+| `modal`                                   | Modal base           | `<div class="modal">`              |
+| `modal-dialog/content/header/body/footer` | Partes del modal     | `<div class="modal-dialog">`       |
+| `dropdown`                                | Dropdown base        | `<div class="dropdown">`           |
+| `dropdown-toggle/menu/item`               | Partes del dropdown  | `<button class="dropdown-toggle">` |
+| `collapse`                                | Contenido colapsable | `<div class="collapse">`           |
+| `accordion`                               | Acordeón             | `<div class="accordion">`          |
+
+## 🔎 Cómo leer la documentación oficial
+
+1. Ir a [getbootstrap.com](https://getbootstrap.com)
+2. Elegir el componente que necesitas: navbar, card, form, etc.
+3. Leer primero la descripción
+4. Usar los ejemplos de código listos para copiar y adaptar
+5. Probar en Codepen o tu editor
+6. Personalizar según tus necesidades
+
+## 🚫 Errores comunes y soluciones
+
+| ❌ Error                                                 | ✅ Corrección                                              |
+| -------------------------------------------------------- | ---------------------------------------------------------- |
+| Modificar `.btn-primary` en CSS                          | Crear `.btn-custom` y usar `btn btn-custom`                |
+| Usar `col-6` sin `row` y `container`                     | Siempre envolver columnas en `.row` dentro de `.container` |
+| Pegar scripts de Bootstrap sin saber qué hacen           | Leer primero la doc y usar solo lo necesario               |
+| No usar clases de spacing (m-, p-) y sobrecargar con CSS | Aprovechar las utilidades que ya existen                   |
+| Mezclar versiones de Bootstrap                           | Usar una sola versión consistente                          |
+| No probar en móviles                                     | Siempre usar las herramientas de desarrollador             |
+
+## 🎯 Ejercicios prácticos para estudiantes
+
+### 🏋️ Ejercicio 1: Crear un formulario de contacto
+
+Crea un formulario con:
+
+- Input de nombre
+- Input de email
+- Select de país
+- Textarea de mensaje
+- Checkbox de términos y condiciones
+- Botón de envío
+
+### 🏋️ Ejercicio 2: Layout de 3 columnas
+
+Crea un layout que:
+
+- En desktop: 3 columnas iguales
+- En tablet: 2 columnas + 1 columna debajo
+- En móvil: 1 columna
+
+### 🏋️ Ejercicio 3: Tarjetas de productos
+
+Crea 6 tarjetas con:
+
+- Imagen de producto
+- Título
+- Precio
+- Descripción breve
+- Botón "Comprar"
+
+## 📱 Breakpoints de Bootstrap 5
+
+| Dispositivo       | Clase | Ancho   |
+| ----------------- | ----- | ------- |
+| Extra small       | `xs`  | <576px  |
+| Small             | `sm`  | ≥576px  |
+| Medium            | `md`  | ≥768px  |
+| Large             | `lg`  | ≥992px  |
+| Extra large       | `xl`  | ≥1200px |
+| Extra extra large | `xxl` | ≥1400px |
+
+## 🔧 Personalización avanzada
+
+### Variables CSS personalizadas
+
+```css
+:root {
+  --bs-primary: #007bff;
+  --bs-secondary: #6c757d;
+  --bs-success: #28a745;
+}
 ```
 
-### 🔥 **Text (Texto)**
+### Compilación con SASS
 
-```html
-<p class="text-start">Texto izquierda</p>
-<p class="text-center">Texto centrado</p>
-<p class="text-end">Texto derecha</p>
+```scss
+// Importar funciones y variables
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
 
-<p class="text-uppercase">MAYÚSCULAS</p>
-<p class="text-lowercase">minúsculas</p>
-<p class="text-capitalize">Primera Letra Mayúscula</p>
+// Personalizar variables
+$primary: #007bff;
+$secondary: #6c757d;
 
-<p class="fw-bold">Texto en negrita</p>
-<p class="fw-normal">Texto normal</p>
-<p class="fst-italic">Texto en cursiva</p>
+// Importar Bootstrap
+@import "bootstrap";
 ```
 
-### 🔥 **Colors (Colores)**
+## 🎯 Consejos finales para estudiantes
 
-```html
-<!-- Colores de texto -->
-<p class="text-primary">Texto primario</p>
-<p class="text-secondary">Texto secundario</p>
-<p class="text-success">Texto éxito</p>
-<p class="text-danger">Texto peligro</p>
-<p class="text-warning">Texto advertencia</p>
-<p class="text-info">Texto información</p>
-<p class="text-light">Texto claro</p>
-<p class="text-dark">Texto oscuro</p>
+1. **Práctica constante**: Usa Bootstrap en todos tus proyectos iniciales
+2. **Inspecciona el código**: Usa las herramientas de desarrollador para ver cómo funciona
+3. **Combina con CSS personalizado**: Bootstrap es la base, no la limitación
+4. **Mantente actualizado**: Sigue las versiones y cambios
+5. **Comunidad**: Participa en foros y grupos de Bootstrap
 
-<!-- Fondos -->
-<div class="bg-primary">Fondo primario</div>
-<div class="bg-secondary">Fondo secundario</div>
-<div class="bg-success">Fondo éxito</div>
-<div class="bg-danger">Fondo peligro</div>
-```
+## 📚 Recursos adicionales
 
-### 🔥 **Display & Flexbox**
+- [Documentación oficial](https://getbootstrap.com/)
+- [Bootstrap Icons](https://icons.getbootstrap.com/)
+- [Bootstrap Themes](https://themes.getbootstrap.com/)
+- [Ejemplos oficiales](https://getbootstrap.com/docs/5.3/examples/)
+- [Codepen Bootstrap](https://codepen.io/collection/DrwPEr/)
 
-```html
-<!-- Display -->
-<div class="d-none">Oculto</div>
-<div class="d-block">Bloque</div>
-<div class="d-inline">En línea</div>
-<div class="d-flex">Flex</div>
-
-<!-- Flexbox -->
-<div class="d-flex justify-content-center">Centrado horizontal</div>
-<div class="d-flex align-items-center">Centrado vertical</div>
-<div class="d-flex justify-content-between">Separado</div>
-<div class="d-flex justify-content-around">Con espacio</div>
-```
-
----
-
-## 📱 Responsive automático
-
-### 🔥 **Clases responsive:**
-
-```html
-<!-- Ocultar en móvil, mostrar en desktop -->
-<div class="d-none d-md-block">Solo desktop</div>
-
-<!-- Mostrar en móvil, ocultar en desktop -->
-<div class="d-block d-md-none">Solo móvil</div>
-
-<!-- Texto responsive -->
-<h1 class="display-1 display-md-3">Título responsive</h1>
-
-<!-- Spacing responsive -->
-<div class="p-2 p-md-5">Padding responsive</div>
-```
-
-### 🔥 **Grid responsive completo:**
-
-```html
-<div class="container">
-  <div class="row">
-    <!-- Móvil: 1 columna, Tablet: 2 columnas, Desktop: 3 columnas -->
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Producto 1</h5>
-          <p class="card-text">Descripción...</p>
-          <a href="#" class="btn btn-primary">Ver más</a>
-        </div>
-      </div>
-    </div>
-    
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Producto 2</h5>
-          <p class="card-text">Descripción...</p>
-          <a href="#" class="btn btn-primary">Ver más</a>
-        </div>
-      </div>
-    </div>
-    
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Producto 3</h5>
-          <p class="card-text">Descripción...</p>
-          <a href="#" class="btn btn-primary">Ver más</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-```
-
----
-
-## 🛠️ Proyecto práctico - Landing Page
-
-### 🎯 **Estructura completa:**
-
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Landing Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-            <a class="navbar-brand" href="#">MiApp</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#inicio">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#servicios">Servicios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contacto">Contacto</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="inicio" class="bg-light py-5">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h1 class="display-4 fw-bold">Bienvenido a MiApp</h1>
-                    <p class="lead">La mejor solución para tu negocio. Rápido, seguro y fácil de usar.</p>
-                    <a href="#servicios" class="btn btn-primary btn-lg">Comenzar ahora</a>
-                </div>
-                <div class="col-lg-6">
-                    <img src="https://via.placeholder.com/500x300" class="img-fluid rounded" alt="Hero">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Servicios -->
-    <section id="servicios" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Nuestros Servicios</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Desarrollo Web</h5>
-                            <p class="card-text">Creamos sitios web modernos y responsive.</p>
-                            <a href="#" class="btn btn-outline-primary">Más info</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Aplicaciones Móviles</h5>
-                            <p class="card-text">Apps nativas para iOS y Android.</p>
-                            <a href="#" class="btn btn-outline-primary">Más info</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Consultoría</h5>
-                            <p class="card-text">Asesoramiento técnico especializado.</p>
-                            <a href="#" class="btn btn-outline-primary">Más info</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contacto -->
-    <section id="contacto" class="bg-light py-5">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <h2 class="text-center mb-4">Contáctanos</h2>
-                    <form>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="nombre" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" id="nombre" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" required>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="mensaje" class="form-label">Mensaje</label>
-                            <textarea class="form-control" id="mensaje" rows="5" required></textarea>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary btn-lg">Enviar Mensaje</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>MiApp</h5>
-                    <p>La mejor solución para tu negocio.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <p>&copy; 2024 MiApp. Todos los derechos reservados.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
-```
-
----
-
-## ❌ Errores comunes y cómo evitarlos
-
-### 🚫 **Error 1: Olvidar el viewport**
-
-```html
-<!-- ❌ MAL -->
-<meta charset="UTF-8">
-<title>Mi sitio</title>
-
-<!-- ✅ BIEN -->
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mi sitio</title>
-```
-
-### 🚫 **Error 2: No usar container**
-
-```html
-<!-- ❌ MAL -->
-<div class="row">
-  <div class="col-6">Contenido</div>
-</div>
-
-<!-- ✅ BIEN -->
-<div class="container">
-  <div class="row">
-    <div class="col-6">Contenido</div>
-  </div>
-</div>
-```
-
-### 🚫 **Error 3: Columnas que no suman 12**
-
-```html
-<!-- ❌ MAL -->
-<div class="row">
-  <div class="col-5">Columna 1</div>
-  <div class="col-5">Columna 2</div>
-  <!-- 5 + 5 = 10, sobran 2 columnas -->
-</div>
-
-<!-- ✅ BIEN -->
-<div class="row">
-  <div class="col-6">Columna 1</div>
-  <div class="col-6">Columna 2</div>
-  <!-- 6 + 6 = 12, perfecto -->
-</div>
-```
-
-### 🚫 **Error 4: Usar CSS inline innecesario**
-
-```html
-<!-- ❌ MAL -->
-<div style="margin-top: 20px; text-align: center;">Contenido</div>
-
-<!-- ✅ BIEN -->
-<div class="mt-3 text-center">Contenido</div>
-```
-
-### 🚫 **Error 5: No usar clases responsive**
-
-```html
-<!-- ❌ MAL -->
-<div class="col-3">Siempre 3 columnas</div>
-
-<!-- ✅ BIEN -->
-<div class="col-12 col-md-6 col-lg-3">Responsive</div>
-```
-
----
-
-## 🎯 Cheat Sheet - Memoriza esto
-
-### 🔥 **Grid System:**
-```
-col-12 = 100% ancho
-col-6 = 50% ancho
-col-4 = 33% ancho
-col-3 = 25% ancho
-```
-
-### 🔥 **Responsive Breakpoints:**
-```
-sm = 576px+ (móvil grande)
-md = 768px+ (tablet)
-lg = 992px+ (desktop)
-xl = 1200px+ (desktop grande)
-```
-
-### 🔥 **Spacing:**
-```
-m-0 = margin: 0
-m-1 = margin: 0.25rem
-m-2 = margin: 0.5rem
-m-3 = margin: 1rem
-m-4 = margin: 1.5rem
-m-5 = margin: 3rem
-```
-
-### 🔥 **Button Colors:**
-```
-btn-primary = azul
-btn-secondary = gris
-btn-success = verde
-btn-danger = rojo
-btn-warning = amarillo
-btn-info = celeste
-```
-
-### 🔥 **Display Classes:**
-```
-d-none = display: none
-d-block = display: block
-d-flex = display: flex
-d-inline = display: inline
-```
-
----
-
-## 🚀 Próximos pasos después de estas 2 horas
-
-### 📚 **Practica con:**
-1. **Recrea sitios famosos** (Twitter, Facebook, Netflix)
-2. **Copia layouts** de sitios que te gusten
-3. **Combina Bootstrap con CSS personalizado**
-4. **Aprende a customizar Bootstrap** con SASS
-
-### 🛠️ **Herramientas útiles:**
-- **[Bootstrap Examples](https://getbootstrap.com/docs/5.3/examples/)** - Ejemplos oficiales
-- **[Bootsnipp](https://bootsnipp.com/)** - Snippets de código
-- **[Bootstrap Cheatsheet](https://bootstrap-cheatsheet.themeselection.com/)** - Referencia rápida
-
-### 💡 **Recuerda:**
-- **Bootstrap es una herramienta, no una solución mágica**
-- **Aprende CSS básico** para customizar cuando necesites
-- **No uses Bootstrap para TODO** - a veces CSS puro es mejor
-- **Mantente actualizado** - Bootstrap evoluciona constantemente
-
----
-
-> **🎯 ¡Felicidades!** Has aprendido lo esencial de Bootstrap en 2 horas. Ahora tienes las herramientas para crear sitios web profesionales y responsive. ¡Ve y construye algo increíble! 🚀
-
-**¡El mercado laboral te está esperando! 💼**
+¡Ahora estás listo para dominar Bootstrap! 🚀
