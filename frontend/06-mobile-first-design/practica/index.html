@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile First - Ejercicios Prácticos</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Header con indicador de resolución -->
+    <header class="bg-primary text-white py-3 mb-4">
+        <div class="container">
+            <h1 class="h3 mb-0">
+                <i class="fas fa-mobile-alt me-2"></i>
+                Mobile First - Ejercicios Prácticos
+            </h1>
+            <div class="resolution-indicator mt-2">
+                <span class="badge bg-light text-dark">Resolución actual: <span id="current-resolution"></span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Ejercicio 1: Navegación Mobile First -->
+    <section class="mb-5">
+        <div class="container">
+            <div class="exercise-header mb-4">
+                <h2 class="h4 text-primary">
+                    <i class="fas fa-bars me-2"></i>
+                    Ejercicio 1: Navegación Mobile First
+                </h2>
+                <p class="text-muted">Observa cómo cambia la navegación según la resolución</p>
+            </div>
+
+            <!-- Navegación responsive -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light rounded shadow-sm">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <i class="fas fa-rocket me-2"></i>
+                        MiApp
+                    </a>
+                    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Servicios</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Portafolio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contacto</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Explicación técnica -->
+            <div class="explanation-box mt-3">
+                <h5 class="text-success">
+                    <i class="fas fa-lightbulb me-2"></i>
+                    ¿Qué está pasando aquí?
+                </h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="breakpoint-info mobile-info">
+                            <h6><i class="fas fa-mobile-alt me-2"></i>Móvil (< 992px)</h6>
+                            <ul class="list-unstyled">
+                                <li>✓ Menú hamburguesa visible</li>
+                                <li>✓ Elementos apilados verticalmente</li>
+                                <li>✓ Navegación colapsable</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="breakpoint-info desktop-info">
+                            <h6><i class="fas fa-desktop me-2"></i>Desktop (≥ 992px)</h6>
+                            <ul class="list-unstyled">
+                                <li>✓ Menú horizontal visible</li>
+                                <li>✓ Elementos en línea</li>
+                                <li>✓ Navegación siempre visible</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ejercicio 2: Grid Responsive -->
+    <section class="mb-5">
+        <div class="container">
+            <div class="exercise-header mb-4">
+                <h2 class="h4 text-primary">
+                    <i class="fas fa-th me-2"></i>
+                    Ejercicio 2: Grid Responsive
+                </h2>
+                <p class="text-muted">Observa cómo cambia el layout: 1 columna → 2 columnas → 3 columnas</p>
+            </div>
+
+            <!-- Grid responsive -->
+            <div class="row g-4">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <div class="feature-icon">
+                                <i class="fas fa-mobile-alt fa-2x text-primary mb-3"></i>
+                            </div>
+                            <h5 class="card-title">Móvil</h5>
+                            <p class="card-text">En móvil, esta tarjeta ocupa todo el ancho disponible (12 columnas).</p>
+                            <div class="device-indicator mobile-only">
+                                <span class="badge bg-primary">Activo en móvil</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <div class="feature-icon">
+                                <i class="fas fa-tablet-alt fa-2x text-success mb-3"></i>
+                            </div>
+                            <h5 class="card-title">Tablet</h5>
+                            <p class="card-text">En tablet, esta tarjeta ocupa la mitad del ancho (6 columnas).</p>
+                            <div class="device-indicator tablet-only">
+                                <span class="badge bg-success">Activo en tablet</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <div class="feature-icon">
+                                <i class="fas fa-desktop fa-2x text-warning mb-3"></i>
+                            </div>
+                            <h5 class="card-title">Desktop</h5>
+                            <p class="card-text">En desktop, esta tarjeta ocupa un tercio del ancho (4 columnas).</p>
+                            <div class="device-indicator desktop-only">
+                                <span class="badge bg-warning">Activo en desktop</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Explicación técnica del grid -->
+            <div class="explanation-box mt-4">
+                <h5 class="text-success">
+                    <i class="fas fa-code me-2"></i>
+                    Código Bootstrap utilizado
+                </h5>
+                <div class="code-comparison">
+                    <pre><code>&lt;div class="col-12 col-md-6 col-lg-4"&gt;
+    &lt;!-- Contenido --&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-lg-4">
+                        <div class="breakpoint-detail">
+                            <h6><i class="fas fa-mobile-alt me-2"></i>Mobile (< 768px)</h6>
+                            <p><code>col-12</code> = 100% ancho</p>
+                            <p class="text-muted">1 columna por fila</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="breakpoint-detail">
+                            <h6><i class="fas fa-tablet-alt me-2"></i>Tablet (≥ 768px)</h6>
+                            <p><code>col-md-6</code> = 50% ancho</p>
+                            <p class="text-muted">2 columnas por fila</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="breakpoint-detail">
+                            <h6><i class="fas fa-desktop me-2"></i>Desktop (≥ 992px)</h6>
+                            <p><code>col-lg-4</code> = 33.33% ancho</p>
+                            <p class="text-muted">3 columnas por fila</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ejercicio 3: Componentes que se Adaptan -->
+    <section class="mb-5">
+        <div class="container">
+            <div class="exercise-header mb-4">
+                <h2 class="h4 text-primary">
+                    <i class="fas fa-magic me-2"></i>
+                    Ejercicio 3: Componentes que se Adaptan
+                </h2>
+                <p class="text-muted">Observa cómo los componentes cambian su comportamiento automáticamente</p>
+            </div>
+
+            <!-- Botones responsive -->
+            <div class="mb-4">
+                <h5>Botones Responsive</h5>
+                <div class="button-group">
+                    <button class="btn btn-primary btn-responsive">
+                        <i class="fas fa-download me-2"></i>
+                        <span class="btn-text">Descargar</span>
+                    </button>
+                    <button class="btn btn-success btn-responsive">
+                        <i class="fas fa-share me-2"></i>
+                        <span class="btn-text">Compartir</span>
+                    </button>
+                    <button class="btn btn-warning btn-responsive">
+                        <i class="fas fa-edit me-2"></i>
+                        <span class="btn-text">Editar</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tabla responsive -->
+            <div class="mb-4">
+                <h5>Tabla Responsive</h5>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Precio</th>
+                                <th>Stock</th>
+                                <th>Categoría</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>iPhone 15</td>
+                                <td>$999</td>
+                                <td>50</td>
+                                <td>Smartphones</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary">Ver</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>MacBook Pro</td>
+                                <td>$1,999</td>
+                                <td>25</td>
+                                <td>Laptops</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary">Ver</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>iPad Air</td>
+                                <td>$599</td>
+                                <td>75</td>
+                                <td>Tablets</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary">Ver</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Card responsive -->
+            <div class="mb-4">
+                <h5>Card con Contenido Adaptativo</h5>
+                <div class="card">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <div class="card-img-container">
+                                <div class="card-img-placeholder">
+                                    <i class="fas fa-image fa-3x text-muted"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Producto Destacado</h5>
+                                <p class="card-text">Esta es una descripción del producto que se adapta perfectamente a diferentes tamaños de pantalla.</p>
+                                <p class="card-text">
+                                    <small class="text-muted">Última actualización hace 3 minutos</small>
+                                </p>
+                                <div class="card-actions">
+                                    <button class="btn btn-primary">Comprar</button>
+                                    <button class="btn btn-outline-secondary">Más info</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Explicación técnica final -->
+            <div class="explanation-box">
+                <h5 class="text-success">
+                    <i class="fas fa-rocket me-2"></i>
+                    Ventajas de Bootstrap vs CSS Manual
+                </h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="advantage-box bootstrap-advantage">
+                            <h6><i class="fas fa-check-circle me-2 text-success"></i>Con Bootstrap</h6>
+                            <ul>
+                                <li>✓ Clases predefinidas</li>
+                                <li>✓ Breakpoints consistentes</li>
+                                <li>✓ Componentes listos para usar</li>
+                                <li>✓ Menos código CSS personalizado</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="advantage-box manual-css">
+                            <h6><i class="fas fa-code me-2 text-warning"></i>CSS Manual</h6>
+                            <ul>
+                                <li>⚠️ Más media queries</li>
+                                <li>⚠️ Más líneas de código</li>
+                                <li>⚠️ Mantener consistencia</li>
+                                <li>⚠️ Testing en más resoluciones</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Mobile First Design</h5>
+                    <p class="mb-0">Ejemplos prácticos de responsive design</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Redimensiona tu navegador para ver los cambios</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

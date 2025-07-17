@@ -1,0 +1,464 @@
+/* ============================================
+   MOBILE FIRST STYLES - assets/css/styles.css
+   ============================================ */
+
+/* Variables CSS para consistencia */
+:root {
+  --primary-color: #0d6efd;
+  --success-color: #198754;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --dark-color: #212529;
+  --light-color: #f8f9fa;
+  --border-radius: 0.375rem;
+  --transition: all 0.3s ease;
+}
+
+/* ============================================
+   ESTILOS BASE - MOBILE FIRST (320px+)
+   ============================================ */
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--dark-color);
+}
+
+/* Indicador de resolución */
+.resolution-indicator {
+  font-size: 0.875rem;
+}
+
+/* Ejercicio 1: Navegación */
+.navbar-brand {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.navbar-toggler {
+  border: none;
+  padding: 0.25rem 0.5rem;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.navbar-nav .nav-link {
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.navbar-nav .nav-link:hover {
+  background-color: rgba(13, 110, 253, 0.1);
+}
+
+/* Ejercicio 2: Cajas explicativas */
+.exercise-header {
+  border-left: 4px solid var(--primary-color);
+  padding-left: 1rem;
+  margin-bottom: 2rem;
+}
+
+.explanation-box {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  border: 1px solid #dee2e6;
+  margin-top: 1rem;
+}
+
+.breakpoint-info {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--primary-color);
+}
+
+.breakpoint-detail {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #dee2e6;
+}
+
+/* Indicadores de dispositivo */
+.device-indicator {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* Por defecto, todos los indicadores están ocultos */
+.mobile-only,
+.tablet-only,
+.desktop-only {
+  display: none;
+}
+
+/* En móvil, mostrar indicador móvil */
+.mobile-only {
+  display: block;
+}
+
+/* Ejercicio 3: Componentes adaptativos */
+.feature-icon {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Botones responsive - móvil primero */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.btn-responsive {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.btn-responsive:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Placeholder para imagen en card */
+.card-img-container {
+  min-height: 200px;
+  background: var(--light-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.card-img-placeholder {
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Acciones de card */
+.card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card-actions .btn {
+  width: 100%;
+}
+
+/* Ventajas de Bootstrap vs CSS Manual */
+.advantage-box {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #dee2e6;
+}
+
+.bootstrap-advantage {
+  border-left: 4px solid var(--success-color);
+}
+
+.manual-css {
+  border-left: 4px solid var(--warning-color);
+}
+
+.code-comparison {
+  background: #f8f9fa;
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 1px solid #dee2e6;
+}
+
+.code-comparison pre {
+  margin: 0;
+  color: #495057;
+  font-size: 0.875rem;
+}
+
+/* ============================================
+   TABLET - SMALL (≥ 576px)
+   ============================================ */
+@media (min-width: 576px) {
+  /* Botones en línea en pantallas pequeñas */
+  .button-group {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .btn-responsive {
+    width: auto;
+    flex: 1;
+    min-width: 120px;
+  }
+  
+  /* Mejoras visuales */
+  .explanation-box {
+    padding: 2rem;
+  }
+  
+  .breakpoint-info {
+    padding: 1.5rem;
+  }
+}
+
+/* ============================================
+   TABLET - MEDIUM (≥ 768px)
+   ============================================ */
+@media (min-width: 768px) {
+  /* Ocultar indicador móvil, mostrar tablet */
+  .mobile-only {
+    display: none;
+  }
+  
+  .tablet-only {
+    display: block;
+  }
+  
+  /* Card con imagen lateral */
+  .card-img-container {
+    min-height: 100%;
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+  }
+  
+  /* Acciones de card en línea */
+  .card-actions {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  
+  .card-actions .btn {
+    width: auto;
+  }
+  
+  /* Navegación mejorada */
+  .navbar-nav .nav-link {
+    margin: 0 0.25rem;
+  }
+  
+  /* Indicadores de breakpoint más detallados */
+  .breakpoint-info h6 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+}
+
+/* ============================================
+   DESKTOP - LARGE (≥ 992px)
+   ============================================ */
+@media (min-width: 992px) {
+  /* Ocultar indicador tablet, mostrar desktop */
+  .tablet-only {
+    display: none;
+  }
+  
+  .desktop-only {
+    display: block;
+  }
+  
+  /* Mejoras en el layout */
+  .exercise-header {
+    margin-bottom: 2.5rem;
+  }
+  
+  .explanation-box {
+    padding: 2.5rem;
+  }
+  
+  /* Navegación con más espacio */
+  .navbar-nav .nav-link {
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+  }
+  
+  /* Efectos hover mejorados */
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: var(--transition);
+  }
+  
+  /* Botones con mejor spacing */
+  .btn-responsive {
+    padding: 0.875rem 1.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* ============================================
+   DESKTOP - EXTRA LARGE (≥ 1200px)
+   ============================================ */
+@media (min-width: 1200px) {
+  /* Contenedor más espacioso */
+  .container {
+    max-width: 1140px;
+  }
+  
+  /* Tipografía mejorada */
+  .exercise-header h2 {
+    font-size: 1.75rem;
+  }
+  
+  .explanation-box {
+    padding: 3rem;
+  }
+  
+  /* Efectos visuales avanzados */
+  .advantage-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+  }
+  
+  .feature-icon i {
+    font-size: 2.5rem !important;
+  }
+}
+
+/* ============================================
+   DESKTOP - EXTRA EXTRA LARGE (≥ 1400px)
+   ============================================ */
+@media (min-width: 1400px) {
+  /* Contenedor máximo */
+  .container {
+    max-width: 1320px;
+  }
+  
+  /* Espaciado generoso */
+  .exercise-header {
+    margin-bottom: 3rem;
+  }
+  
+  .explanation-box {
+    padding: 3.5rem;
+  }
+  
+  /* Tipografía más grande */
+  body {
+    font-size: 1.1rem;
+  }
+  
+  .exercise-header h2 {
+    font-size: 2rem;
+  }
+  
+  /* Efectos visuales premium */
+  .card {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* ============================================
+   UTILIDADES Y HELPERS
+   ============================================ */
+
+/* Debugging: mostrar breakpoints activos */
+.debug-breakpoints::before {
+  content: "XS";
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: var(--danger-color);
+  color: white;
+  padding: 5px 10px;
+  border-radius: var(--border-radius);
+  font-size: 0.75rem;
+  z-index: 9999;
+}
+
+@media (min-width: 576px) {
+  .debug-breakpoints::before {
+    content: "SM";
+    background: var(--warning-color);
+  }
+}
+
+@media (min-width: 768px) {
+  .debug-breakpoints::before {
+    content: "MD";
+    background: var(--success-color);
+  }
+}
+
+@media (min-width: 992px) {
+  .debug-breakpoints::before {
+    content: "LG";
+    background: var(--primary-color);
+  }
+}
+
+@media (min-width: 1200px) {
+  .debug-breakpoints::before {
+    content: "XL";
+    background: var(--dark-color);
+  }
+}
+
+@media (min-width: 1400px) {
+  .debug-breakpoints::before {
+    content: "XXL";
+    background: #6f42c1;
+  }
+}
+
+/* Transiciones suaves para todos los cambios */
+* {
+  transition: var(--transition);
+}
+
+/* Prevenir transiciones en el resize */
+.resize-animation-stopper * {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* ============================================
+   COMENTARIOS EDUCATIVOS EN CSS
+   ============================================ */
+
+/*
+  RESUMEN DE BREAKPOINTS BOOTSTRAP 5:
+  
+  - XS: < 576px  (Extra small - móviles)
+  - SM: ≥ 576px  (Small - móviles grandes)
+  - MD: ≥ 768px  (Medium - tablets)
+  - LG: ≥ 992px  (Large - laptops)
+  - XL: ≥ 1200px (Extra large - desktops)
+  - XXL: ≥ 1400px (Extra extra large - pantallas grandes)
+  
+  VENTAJAS DE MOBILE FIRST:
+  
+  1. Menor cantidad de CSS: Empezamos con lo básico
+  2. Mejor rendimiento: Menos sobrescritura de estilos
+  3. Progressive Enhancement: Cada breakpoint mejora la experiencia
+  4. Enfoque en contenido: Las restricciones móviles nos obligan a priorizar
+  
+  DIFERENCIA CON DESKTOP FIRST:
+  
+  Mobile First: @media (min-width: 768px) - Agregamos estilos
+  Desktop First: @media (max-width: 767px) - Removemos estilos
+  
+  EJEMPLO PRÁCTICO:
+  
+  Sin Bootstrap (CSS manual):
+  .button { width: 100%; }
+  @media (min-width: 768px) { .button { width: auto; } }
+  
+  Con Bootstrap:
+  <button class="btn btn-primary w-100 w-md-auto">Botón
