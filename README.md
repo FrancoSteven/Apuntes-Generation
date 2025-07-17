@@ -28,12 +28,14 @@ Repositorio diseñado para estudiantes y desarrolladores que necesitan consultar
 │   ├── 📂 semana5/ → Código base: for, while, do-while, if, else-if, switch, operadores ternarios
 │   └── 📂 semana6/ → Código base: POO, encapsulamiento, herencia, polimorfismo, abstracción, interfaces
 ├── 📂 java-maven/  → Gestión de memoria, excepciones, pruebas unitarias con JUnit 5 y TDD con Maven
-├── 📂 frontend/
-│   ├── 01-intro-html/        → Introducción al lenguaje HTML
-│   ├── 02-html-semantico/    → Estructura semántica: header, nav, section, etc.
-│   ├── 03-intro-css/         → Primeros estilos: selectores, colores, clases, IDs
-│   ├── 04-css-avanzado/      → Flexbox, Grid, media queries
-│   ├── 05-intro-js/          → Variables, funciones, operadores, eventos básicos
-│   └── 06-dom-js/           → Manipulación del DOM, eventos, interacción
+├── 📂 frontend/           → Módulo práctico de frontend web
+│   ├── 📂 01-intro-html/        → Fundamentos de HTML y estructura básica
+│   ├── 📂 02-html-semantico/    → HTML semántico y buenas prácticas
+│   ├── 📂 03-intro-css/         → Introducción a CSS (estilos, clases, colores)
+│   ├── 📂 04-css-avanzado/      → Flexbox, Grid y diseño responsivo
+│   ├── 📂 05-css-bootstrap/          → Lógica básica con JavaScript
+│   └── 📂 06-mobile-first-design/            → Manipulación del DOM e interactividadicos
+│   └── 📂 07-js-dom/  →  Acceso y manipulación del DOM con selectores, eventos y Bootstrap
+│   └── 📂 08-js-basico/  → Fundamentos de JS: variables, arrays, funciones, condicionales, DOM
 └── 📝 glosario/    → Definiciones de términos técnicos
 ```
