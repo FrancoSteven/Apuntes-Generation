@@ -1,0 +1,303 @@
+       /* === VARIABLES CSS === */
+        :root {
+            --primary-color: #3b82f6;
+            --success-color: #10b981;
+            --danger-color: #ef4444;
+            --warning-color: #f59e0b;
+            --bg-primary: #f8fafc;
+            --text-primary: #1f2937;
+            --border-radius: 12px;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* === ESTILOS GENERALES === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+        }
+
+        /* === HEADER === */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            text-align: center;
+        }
+
+        /* === CONTROLES === */
+        .controls-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-custom {
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            padding: 0.75rem 1.5rem;
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary-custom {
+            background: linear-gradient(45deg, var(--primary-color), #6366f1);
+            color: white;
+        }
+
+        .btn-success-custom {
+            background: linear-gradient(45deg, var(--success-color), #059669);
+            color: white;
+        }
+
+        .btn-danger-custom {
+            background: linear-gradient(45deg, var(--danger-color), #dc2626);
+            color: white;
+        }
+
+        .btn-warning-custom {
+            background: linear-gradient(45deg, var(--warning-color), #d97706);
+            color: white;
+        }
+
+        /* === ESTADÍSTICAS === */
+        .stats-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(45deg, #f8fafc, #e2e8f0);
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-color);
+        }
+
+        /* === TARJETAS POKEMON === */
+        .pokemon-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+            overflow: hidden;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .pokemon-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .pokemon-image {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            background: linear-gradient(45deg, #f8fafc, #e2e8f0);
+            transition: var(--transition);
+        }
+
+        .pokemon-image:hover {
+            transform: scale(1.05);
+        }
+
+        .pokemon-name {
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            text-transform: capitalize;
+        }
+
+        .pokemon-info {
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .pokemon-info strong {
+            color: var(--primary-color);
+        }
+
+        .type-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 0.1rem;
+            text-transform: capitalize;
+        }
+
+        .favorite-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            color: #6b7280;
+            transition: var(--transition);
+        }
+
+        .favorite-btn:hover {
+            background: rgba(255, 255, 255, 1);
+            color: #ef4444;
+        }
+
+        .favorite-btn.active {
+            color: #ef4444;
+        }
+
+        /* === COLORES POR TIPO === */
+        .bg-fire { background: linear-gradient(45deg, #ff6b6b, #ee5a24) !important; }
+        .bg-water { background: linear-gradient(45deg, #3742fa, #2f3542) !important; }
+        .bg-grass { background: linear-gradient(45deg, #2ed573, #1e90ff) !important; }
+        .bg-electric { background: linear-gradient(45deg, #ffa502, #ff6348) !important; }
+        .bg-psychic { background: linear-gradient(45deg, #ff4757, #c44569) !important; }
+        .bg-ice { background: linear-gradient(45deg, #70a1ff, #5352ed) !important; }
+        .bg-dragon { background: linear-gradient(45deg, #7bed9f, #2ed573) !important; }
+        .bg-dark { background: linear-gradient(45deg, #2f3542, #40407a) !important; }
+        .bg-fairy { background: linear-gradient(45deg, #ff9ff3, #f368e0) !important; }
+        .bg-fighting { background: linear-gradient(45deg, #ff3838, #ff4757) !important; }
+        .bg-poison { background: linear-gradient(45deg, #8c7ae6, #9c88ff) !important; }
+        .bg-ground { background: linear-gradient(45deg, #ffc048, #ffb142) !important; }
+        .bg-flying { background: linear-gradient(45deg, #a4b0be, #747d8c) !important; }
+        .bg-bug { background: linear-gradient(45deg, #7bed9f, #2ed573) !important; }
+        .bg-rock { background: linear-gradient(45deg, #747d8c, #57606f) !important; }
+        .bg-ghost { background: linear-gradient(45deg, #a4b0be, #747d8c) !important; }
+        .bg-steel { background: linear-gradient(45deg, #57606f, #2f3542) !important; }
+        .bg-normal { background: linear-gradient(45deg, #a4b0be, #747d8c) !important; }
+
+        /* === ANIMACIONES === */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* === MODAL === */
+        .modal-content {
+            border-radius: var(--border-radius);
+            border: none;
+            box-shadow: var(--shadow-md);
+        }
+
+        .modal-header {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border-bottom: none;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            .controls-section {
+                padding: 1rem;
+            }
+            
+            .btn-custom {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .stat-card {
+                padding: 0.75rem;
+            }
+            
+            .stat-number {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* === LOADING === */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* === TOAST === */
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1055;
+        }
+
+        .toast {
+            border-radius: var(--border-radius);
+            border: none;
+            box-shadow: var(--shadow-md);
+        }

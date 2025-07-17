@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mini Pokédex</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container py-4">
+        <!-- Header -->
+        <div class="header p-4">
+            <h1 class="mb-2">
+                <i class="fas fa-search"></i> Mini Pokédex
+            </h1>
+            <p class="text-center text-muted mb-0">¡Bienvenido, entrenador! Descubre y gestiona tu colección Pokémon</p>
+        </div>
+
+        <!-- Estadísticas -->
+        <div class="stats-section">
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalPokemon">0</div>
+                        <div class="text-muted">Total Pokémon</div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="stat-card">
+                        <div class="stat-number" id="favoritos">0</div>
+                        <div class="text-muted">Favoritos</div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="stat-card">
+                        <div class="stat-number" id="tipoMasComun">-</div>
+                        <div class="text-muted">Tipo Más Común</div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="stat-card">
+                        <div class="stat-number" id="promedioExp">0</div>
+                        <div class="text-muted">Exp. Promedio</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controles -->
+        <div class="controls-section">
+            <div class="row mb-3">
+                <div class="col-md-4 mb-2">
+                    <button id="agregarBtn" class="btn btn-custom btn-success-custom w-100">
+                        <i class="fas fa-plus"></i> Agregar Pokémon
+                    </button>
+                </div>
+                <div class="col-md-4 mb-2">
+                    <button id="quitarBtn" class="btn btn-custom btn-danger-custom w-100">
+                        <i class="fas fa-minus"></i> Quitar Último
+                    </button>
+                </div>
+                <div class="col-md-4 mb-2">
+                    <button id="limpiarBtn" class="btn btn-custom btn-warning-custom w-100">
+                        <i class="fas fa-trash"></i> Limpiar Todo
+                    </button>
+                </div>
+            </div>
+
+            <!-- Búsqueda -->
+            <div class="row mb-3">
+                <div class="col-md-8 mb-2">
+                    <input id="buscador" type="text" class="form-control"
+                        placeholder="Buscar por nombre o ID (ej: pikachu, 25)">
+                </div>
+                <div class="col-md-4 mb-2">
+                    <button id="buscarBtn" class="btn btn-custom btn-primary-custom w-100">
+                        <i class="fas fa-search"></i> Buscar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filtros -->
+            <div class="row">
+                <div class="col-md-6 mb-2">
+                    <select id="filtroTipo" class="form-select">
+                        <option value="">Todos los tipos</option>
+                        <option value="fire">Fuego</option>
+                        <option value="water">Agua</option>
+                        <option value="grass">Planta</option>
+                        <option value="electric">Eléctrico</option>
+                        <option value="psychic">Psíquico</option>
+                        <option value="ice">Hielo</option>
+                        <option value="dragon">Dragón</option>
+                        <option value="dark">Siniestro</option>
+                        <option value="fairy">Hada</option>
+                        <option value="fighting">Lucha</option>
+                        <option value="poison">Veneno</option>
+                        <option value="ground">Tierra</option>
+                        <option value="flying">Volador</option>
+                        <option value="bug">Bicho</option>
+                        <option value="rock">Roca</option>
+                        <option value="ghost">Fantasma</option>
+                        <option value="steel">Acero</option>
+                        <option value="normal">Normal</option>
+                    </select>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <button id="mostrarFavoritos" class="btn btn-custom btn-warning-custom w-100">
+                        <i class="fas fa-heart"></i> Mostrar Solo Favoritos
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenedor Principal -->
+        <div id="pokedex" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+            <!-- Las tarjetas se insertan aquí -->
+        </div>
+
+        <!-- Mensaje vacío -->
+        <div id="mensajeVacio" class="text-center py-5 d-none">
+            <i class="fas fa-search fa-3x text-muted mb-3"></i>
+            <h4 class="text-muted">No hay Pokémon para mostrar</h4>
+            <p class="text-muted">Agrega algunos Pokémon para comenzar tu colección</p>
+        </div>
+    </div>
+
+    <!-- Modal de Detalles -->
+    <div class="modal fade" id="detallesModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Detalles del Pokémon</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <!-- Contenido del modal -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container"></div>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
