@@ -456,10 +456,10 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 ## 📌 Checklist de validación final
 
 - ✅ Todos los campos tienen `id` y `name`
-  ✅ Hay validación HTML5 básica (`required`, `type`, etc.)
-  ✅ Se usa JS para validación adicional y mensajes claros
-  ✅ Se evita el envío si hay errores (`preventDefault()`)
-  ✅ Se usan clases para mostrar/ocultar mensajes
-  ✅ El backend también valida antes de aceptar los datos
+- ✅ Hay validación HTML5 básica (`required`, `type`, etc.)
+- ✅ Se usa JS para validación adicional y mensajes claros
+- ✅ Se evita el envío si hay errores (`preventDefault()`)
+- ✅ Se usan clases para mostrar/ocultar mensajes
+- ✅ El backend también valida antes de aceptar los datos
 
 ---
