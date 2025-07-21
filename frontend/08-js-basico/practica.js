@@ -113,6 +113,85 @@ console.log(calcularAreaCirculo(5)); // El área del círculo con radio 5 es 78.
 
 
 
+// ===========================
+// ✅ EJERCICIO 7: TEMPLATE LITERALS Y CONCATENACIÓN
+// ===========================
+// Ejercicio 7: Crea una función que reciba nombre y ciudad,
+// y devuelva un mensaje como: "Hola Pedro, bienvenido a Madrid"
+
+function bienvenida(nombre, ciudad) {
+  return `Hola ${nombre}, bienvenido a ${ciudad}`;
+}
+
+console.log(bienvenida("Pedro", "Madrid")); // "Hola Pedro, bienvenido a Madrid"
+
+
+// ===========================
+// ✅ EJERCICIO 8: CONDICIONALES MÚLTIPLES
+// ===========================
+// Ejercicio 8: Crea una función que reciba una nota (1-7)
+// y devuelva si es "Suspenso", "Aprobado" o "Sobresaliente"
+
+function evaluarNota(nota) {
+  if (nota < 3) return "Suspenso";
+  if (nota <= 4 ) return "Aprobado";
+  return "Sobresaliente";
+}
+
+console.log(evaluarNota(1)); // "Suspenso"
+console.log(evaluarNota(4)); // "Aprobado"
+console.log(evaluarNota(7)); // "Sobresaliente"
+
+
+// ===========================
+// ✅ EJERCICIO 9: BUCLES Y SUMA
+// ===========================
+// Ejercicio 9: Calcula la suma de los números del 1 al 5
+// usando un bucle for
+
+let suma = 0;
+for (let i = 1; i <= 5; i++) {
+  suma += i;
+}
+console.log(`La suma de 1 a 5 es: ${suma}`); // 15
+
+
+// ===========================
+// ✅ EJERCICIO 10: ARRAY Y REDUCE
+// ===========================
+// Ejercicio 10: Dado un array de números, calcula la suma total
+// usando el método reduce
+
+const numeros = [3, 5, 7, 10];
+const sumaTotal = numeros.reduce((acum, num) => acum + num, 0);
+console.log(`La suma total es: ${sumaTotal}`); // 25
+
+
+// ===========================
+// ✅ EJERCICIO 11: OBJETO Y TEMPLATE LITERALS
+// ===========================
+// Ejercicio 11: Crea un objeto "persona" con nombre, edad y ciudad
+// Muestra un mensaje como "María tiene 30 años y vive en Lima"
+
+const persona = {
+  nombre: "María",
+  edad: 30,
+  ciudad: "Lima"
+};
+
+console.log(`${persona.nombre} tiene ${persona.edad} años y vive en ${persona.ciudad}.`);
+
+
+// ===========================
+// ✅ EJERCICIO 12: FUNCIÓN FLECHA
+// ===========================
+// Ejercicio 12: Crea una función flecha que reciba un número
+// y devuelva su cuadrado
+
+const cuadrado = num => num * num;
+
+console.log(cuadrado(4)); // 16
+console.log(cuadrado(9)); // 81
 
 
 
