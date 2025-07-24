@@ -128,6 +128,17 @@ CREATE TABLE profesores_jefe (
     UNIQUE KEY unique_curso_anio (curso_id, anio)
 );
 
+CREATE TABLE profesores_jefe (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    docente_id INT NOT NULL,
+    curso_id INT NOT NULL,
+    anio YEAR NOT NULL,
+    FOREIGN KEY (docente_id) REFERENCES docentes(id),
+    FOREIGN KEY (curso_id) REFERENCES cursos(id),
+    UNIQUE KEY unique_curso_anio (curso_id, anio)
+);
+
+
 -- =====================================================
 -- TABLA: asignaciones_docentes
 -- Descripción: Qué docente enseña qué asignatura en qué curso
@@ -193,14 +204,17 @@ CREATE TABLE notas (
 
 -- Índices para consultas de notas
 CREATE INDEX idx_notas_estudiante_fecha ON notas(estudiante_id, fecha_registro);
+
 CREATE INDEX idx_evaluaciones_fecha ON evaluaciones(fecha_evaluacion);
 
 -- Índices para consultas de matriculas
 CREATE INDEX idx_matriculas_curso_estado ON matriculas(curso_id, estado);
+
 CREATE INDEX idx_matriculas_estudiante_estado ON matriculas(estudiante_id, estado);
 
 -- Índices para asignaciones
 CREATE INDEX idx_asignaciones_periodo ON asignaciones_docentes(periodo_academico_id);
+
 CREATE INDEX idx_asignaciones_docente ON asignaciones_docentes(docente_id);
 
 -- =====================================================
@@ -222,7 +236,9 @@ FROM estudiantes e
 JOIN matriculas m ON e.id = m.estudiante_id
 JOIN cursos c ON m.curso_id = c.id
 JOIN niveles_educacionales n ON c.nivel_id = n.id
-WHERE m.estado = 'activo' AND c.anio = YEAR(CURDATE());
+JOIN periodos_academicos pa ON pa.anio = c.anio
+WHERE m.estado = 'activo'
+  AND pa.activo = TRUE;
 
 -- Vista: Docentes con sus asignaciones actuales
 CREATE VIEW vista_docentes_asignaciones AS

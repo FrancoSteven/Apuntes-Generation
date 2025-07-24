@@ -24,8 +24,8 @@ SELECT
 FROM estudiantes e
 JOIN matriculas m ON e.id = m.estudiante_id
 JOIN cursos c ON m.curso_id = c.id
-WHERE c.nombre = '4° Medio A'  -- Cambiar por el curso deseado
-  AND c.anio = YEAR(CURDATE())
+WHERE c.nombre = '4° Medio A'  -- Cambiar por el curso deseado ver tabla "CURSOS ACADÉMICOS"
+  AND c.anio = 2024
   AND m.estado = 'activo'
 ORDER BY e.apellidos, e.nombres;
 
@@ -137,7 +137,7 @@ JOIN periodos_academicos pa ON ad.periodo_academico_id = pa.id
 WHERE pa.activo = TRUE
   AND m.estado = 'activo'
 GROUP BY e.id, a.id, c.nombre, a.nombre
-HAVING AVG(n.nota) < 4.0
+HAVING AVG(n.nota) < 4.0  -- Cambiar por nota diferente
 ORDER BY promedio ASC, e.apellidos;
 
 -- =====================================================
@@ -226,20 +226,18 @@ SELECT
     c.nombre AS curso,
     n.nombre AS nivel,
     m.fecha_matricula,
-    COUNT(no.id) AS total_notas
+    COUNT(no.id) AS total_notas,
+    CASE WHEN COUNT(no.id) = 0 THEN 'SIN NOTAS' ELSE 'CON NOTAS' END AS estado_notas
 FROM estudiantes e
 JOIN matriculas m ON e.id = m.estudiante_id
 JOIN cursos c ON m.curso_id = c.id
 JOIN niveles_educacionales n ON c.nivel_id = n.id
 LEFT JOIN notas no ON e.id = no.estudiante_id
-LEFT JOIN evaluaciones ev ON no.evaluacion_id = ev.id
-LEFT JOIN asignaciones_docentes ad ON ev.asignacion_docente_id = ad.id
-LEFT JOIN periodos_academicos pa ON ad.periodo_academico_id = pa.id AND pa.activo = TRUE
 WHERE m.estado = 'activo'
-  AND c.anio = YEAR(CURDATE())
-GROUP BY e.id
-HAVING total_notas = 0
-ORDER BY c.nombre, e.apellidos;
+  AND c.anio = 2024
+GROUP BY e.id, e.rut, estudiante, c.nombre, n.nombre, m.fecha_matricula
+ORDER BY c.nombre, estudiante;
+
 
 -- 11. CURSOS SIN PROFESOR JEFE
 -- Listar cursos que no tienen profesor jefe asignado
@@ -249,15 +247,17 @@ SELECT
     n.nombre AS nivel,
     c.capacidad_maxima,
     COUNT(m.id) AS estudiantes_matriculados,
-    c.anio
+    c.anio,
+    COALESCE(CONCAT(d.nombres, ' ', d.apellidos), 'SIN ASIGNAR') AS profesor_jefe
 FROM cursos c
 JOIN niveles_educacionales n ON c.nivel_id = n.id
 LEFT JOIN profesores_jefe pj ON c.id = pj.curso_id AND pj.anio = c.anio
+LEFT JOIN docentes d ON pj.docente_id = d.id
 LEFT JOIN matriculas m ON c.id = m.curso_id AND m.estado = 'activo'
 WHERE c.activo = TRUE
-  AND pj.id IS NULL
-GROUP BY c.id
+GROUP BY c.id, d.id
 ORDER BY n.nombre, c.nombre;
+
 
 -- 12. RESUMEN POR NIVEL EDUCACIONAL
 -- Mostrar cantidad de estudiantes, docentes y asignaturas por nivel (básica/media)
@@ -281,14 +281,15 @@ JOIN (
         COUNT(m2.id) AS cantidad
     FROM cursos c2
     LEFT JOIN matriculas m2 ON c2.id = m2.curso_id AND m2.estado = 'activo'
-    WHERE c2.anio = YEAR(CURDATE())
+    WHERE c2.anio = 2024
     GROUP BY c2.id
 ) matriculados ON c.id = matriculados.id
-WHERE c.anio = YEAR(CURDATE())
+WHERE c.anio = 2024
   AND m.estado = 'activo'
   AND pa.activo = TRUE
 GROUP BY n.id, n.nombre
 ORDER BY n.nombre;
+
 
 -- =====================================================
 -- CONSULTAS ADICIONALES ÚTILES
@@ -312,83 +313,48 @@ JOIN asignaciones_docentes ad ON ev.asignacion_docente_id = ad.id
 JOIN periodos_academicos pa ON ad.periodo_academico_id = pa.id
 WHERE pa.activo = TRUE
   AND m.estado = 'activo'
-GROUP BY e.id
-HAVING COUNT(n.nota) >= 3  -- Al menos 3 evaluaciones
+GROUP BY e.id, e.rut, estudiante, c.nombre
+HAVING COUNT(n.nota) >= 3
 ORDER BY promedio_general DESC
 LIMIT 10;
 
+
 -- REPORTE EXTRA 2: DISTRIBUCIÓN DE NOTAS POR RANGO
-SELECT 
-    'Excelente (6.0-7.0)' AS rango_notas,
-    COUNT(*) AS cantidad_notas,
-    ROUND((COUNT(*) * 100.0 / total.total), 1) AS porcentaje
-FROM notas n
-JOIN evaluaciones ev ON n.evaluacion_id = ev.id
-JOIN asignaciones_docentes ad ON ev.asignacion_docente_id = ad.id
-JOIN periodos_academicos pa ON ad.periodo_academico_id = pa.id,
-(SELECT COUNT(*) AS total FROM notas n2 
- JOIN evaluaciones ev2 ON n2.evaluacion_id = ev2.id
- JOIN asignaciones_docentes ad2 ON ev2.asignacion_docente_id = ad2.id
- JOIN periodos_academicos pa2 ON ad2.periodo_academico_id = pa2.id
- WHERE pa2.activo = TRUE) total
-WHERE pa.activo = TRUE
-  AND n.nota >= 6.0
-
-UNION ALL
 
 SELECT 
-    'Bueno (5.0-5.9)' AS rango_notas,
-    COUNT(*) AS cantidad_notas,
-    ROUND((COUNT(*) * 100.0 / total.total), 1) AS porcentaje
-FROM notas n
-JOIN evaluaciones ev ON n.evaluacion_id = ev.id
-JOIN asignaciones_docentes ad ON ev.asignacion_docente_id = ad.id
-JOIN periodos_academicos pa ON ad.periodo_academico_id = pa.id,
-(SELECT COUNT(*) AS total FROM notas n2 
- JOIN evaluaciones ev2 ON n2.evaluacion_id = ev2.id
- JOIN asignaciones_docentes ad2 ON ev2.asignacion_docente_id = ad2.id
- JOIN periodos_academicos pa2 ON ad2.periodo_academico_id = pa2.id
- WHERE pa2.activo = TRUE) total
-WHERE pa.activo = TRUE
-  AND n.nota >= 5.0 AND n.nota < 6.0
+    rango_notas,
+    cantidad_notas,
+    ROUND(cantidad_notas * 100.0 / total_notas, 1) AS porcentaje
+FROM (
+    SELECT 
+        CASE
+            WHEN n.nota >= 6.0 THEN 'Excelente (6.0-7.0)'
+            WHEN n.nota >= 5.0 THEN 'Bueno (5.0-5.9)'
+            WHEN n.nota >= 4.0 THEN 'Suficiente (4.0-4.9)'
+            ELSE 'Insuficiente (1.0-3.9)'
+        END AS rango_notas,
+        COUNT(*) AS cantidad_notas
+    FROM notas n
+    JOIN evaluaciones ev ON n.evaluacion_id = ev.id
+    JOIN asignaciones_docentes ad ON ev.asignacion_docente_id = ad.id
+    JOIN periodos_academicos pa ON ad.periodo_academico_id = pa.id
+    WHERE pa.activo = TRUE
+    GROUP BY rango_notas
+) AS distribucion
+CROSS JOIN (
+    SELECT COUNT(*) AS total_notas
+    FROM notas n2
+    JOIN evaluaciones ev2 ON n2.evaluacion_id = ev2.id
+    JOIN asignaciones_docentes ad2 ON ev2.asignacion_docente_id = ad2.id
+    JOIN periodos_academicos pa2 ON ad2.periodo_academico_id = pa2.id
+    WHERE pa2.activo = TRUE
+) AS total
+ORDER BY rango_notas;
 
-UNION ALL
 
-SELECT 
-    'Suficiente (4.0-4.9)' AS rango_notas,
-    COUNT(*) AS cantidad_notas,
-    ROUND((COUNT(*) * 100.0 / total.total), 1) AS porcentaje
-FROM notas n
-JOIN evaluaciones ev ON n.evaluacion_id = ev.id
-JOIN asignaciones_docentes ad ON ev.asignacion_docente_id = ad.id
-JOIN periodos_academicos pa ON ad.periodo_academico_id = pa.id,
-(SELECT COUNT(*) AS total FROM notas n2 
- JOIN evaluaciones ev2 ON n2.evaluacion_id = ev2.id
- JOIN asignaciones_docentes ad2 ON ev2.asignacion_docente_id = ad2.id
- JOIN periodos_academicos pa2 ON ad2.periodo_academico_id = pa2.id
- WHERE pa2.activo = TRUE) total
-WHERE pa.activo = TRUE
-  AND n.nota >= 4.0 AND n.nota < 5.0
-
-UNION ALL
-
-SELECT 
-    'Insuficiente (1.0-3.9)' AS rango_notas,
-    COUNT(*) AS cantidad_notas,
-    ROUND((COUNT(*) * 100.0 / total.total), 1) AS porcentaje
-FROM notas n
-JOIN evaluaciones ev ON n.evaluacion_id = ev.id
-JOIN asignaciones_docentes ad ON ev.asignacion_docente_id = ad.id
-JOIN periodos_academicos pa ON ad.periodo_academico_id = pa.id,
-(SELECT COUNT(*) AS total FROM notas n2 
- JOIN evaluaciones ev2 ON n2.evaluacion_id = ev2.id
- JOIN asignaciones_docentes ad2 ON ev2.asignacion_docente_id = ad2.id
- JOIN periodos_academicos pa2 ON ad2.periodo_academico_id = pa2.id
- WHERE pa2.activo = TRUE) total
-WHERE pa.activo = TRUE
-  AND n.nota < 4.0;
 
 -- REPORTE EXTRA 3: DOCENTES CON SUS ASIGNATURAS Y CARGA ACADÉMICA
+
 SELECT 
     d.rut,
     CONCAT(d.nombres, ' ', d.apellidos) AS docente,

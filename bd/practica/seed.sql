@@ -61,7 +61,8 @@ INSERT INTO docentes (rut, nombres, apellidos, especialidad, telefono, email, fe
 ('56789012-3', 'Patricia', 'Morales Jiménez', 'Historia y Geografía', '+56912345005', 'patricia.morales@colegiosanmartin.cl', '2020-08-01', 'activo'),
 ('67890123-4', 'Diego', 'Herrera Soto', 'Educación Física', '+56912345006', 'diego.herrera@colegiosanmartin.cl', '2019-08-01', 'activo'),
 ('78901234-5', 'Carmen', 'Torres Valdés', 'Inglés', '+56912345007', 'carmen.torres@colegiosanmartin.cl', '2021-08-01', 'activo'),
-('89012345-6', 'Andrés', 'Silva Ramos', 'Artes Visuales', '+56912345008', 'andres.silva@colegiosanmartin.cl', '2022-03-01', 'activo');
+('89012345-6', 'Andrés', 'Silva Ramos', 'Artes Visuales', '+56912345008', 'andres.silva@colegiosanmartin.cl', '2022-03-01', 'activo'),
+('90123456-7', 'Claudia', 'Vega Pérez', 'Educación General', '+56912345009', 'claudia.vega@colegiosanmartin.cl', '2024-03-01', 'activo');
 
 -- =====================================================
 -- ASIGNATURAS
@@ -153,7 +154,8 @@ INSERT INTO profesores_jefe (docente_id, curso_id, anio) VALUES
 (5, 6, 2024), -- Patricia - 1° Medio A
 (6, 7, 2024), -- Diego - 2° Medio A
 (7, 8, 2024), -- Carmen - 3° Medio A
-(8, 9, 2024); -- Andrés - 4° Medio A
+(8, 9, 2024), -- Andrés - 4° Medio A
+(9, 9, 2024); -- Claudia - 4° Medio A
 
 -- =====================================================
 -- ASIGNACIONES DE DOCENTES (2024 - 2do Semestre)
