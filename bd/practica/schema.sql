@@ -128,17 +128,6 @@ CREATE TABLE profesores_jefe (
     UNIQUE KEY unique_curso_anio (curso_id, anio)
 );
 
-CREATE TABLE profesores_jefe (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    docente_id INT NOT NULL,
-    curso_id INT NOT NULL,
-    anio YEAR NOT NULL,
-    FOREIGN KEY (docente_id) REFERENCES docentes(id),
-    FOREIGN KEY (curso_id) REFERENCES cursos(id),
-    UNIQUE KEY unique_curso_anio (curso_id, anio)
-);
-
-
 -- =====================================================
 -- TABLA: asignaciones_docentes
 -- Descripción: Qué docente enseña qué asignatura en qué curso
