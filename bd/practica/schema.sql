@@ -4,8 +4,9 @@
 -- Descripción: Creación de base de datos y todas las tablas
 -- =====================================================
 
--- Crear base de datos
+
 DROP DATABASE IF EXISTS colegio_san_martin;
+-- Crear base de datos
 CREATE DATABASE colegio_san_martin;
 USE colegio_san_martin;
 
@@ -211,7 +212,7 @@ CREATE INDEX idx_asignaciones_docente ON asignaciones_docentes(docente_id);
 -- =====================================================
 
 -- Vista: Estudiantes con su información de matrícula actual
-CREATE VIEW vista_estudiantes_activos AS
+CREATE OR REPLACE VIEW vista_estudiantes_activos AS
 SELECT 
     e.id,
     e.rut,
@@ -230,7 +231,7 @@ WHERE m.estado = 'activo'
   AND pa.activo = TRUE;
 
 -- Vista: Docentes con sus asignaciones actuales
-CREATE VIEW vista_docentes_asignaciones AS
+CREATE OR REPLACE VIEW vista_docentes_asignaciones AS
 SELECT 
     d.id,
     d.rut,
@@ -251,27 +252,28 @@ WHERE d.estado = 'activo' AND pa.activo = TRUE;
 -- PROCEDIMIENTOS ALMACENADOS ÚTILES
 -- =====================================================
 
-DELIMITER //
+DELIMITER //    -- Cambiamos el delimitador a //
 
--- Procedimiento para calcular promedio de un estudiante en una asignatura
-CREATE PROCEDURE CalcularPromedioEstudianteAsignatura(
-    IN p_estudiante_id INT,
-    IN p_asignatura_id INT,
-    IN p_periodo_academico_id INT,
-    OUT p_promedio DECIMAL(3,1)
+CREATE PROCEDURE CalcularPromedioEstudianteAsignatura(   -- Definición del procedimiento
+    IN p_estudiante_id INT,       -- Parámetro de entrada (id estudiante)
+    IN p_asignatura_id INT,       -- Parámetro de entrada (id asignatura)
+    IN p_periodo_academico_id INT,-- Parámetro de entrada (id periodo)
+    OUT p_promedio DECIMAL(3,1)   -- Parámetro de salida (promedio)
 )
 BEGIN
-    SELECT AVG(n.nota)
-    INTO p_promedio
+    -- Aquí va la lógica del procedimiento
+    SELECT AVG(n.nota)    -- Se calcula el promedio de las notas
+    INTO p_promedio       -- Se almacena el resultado en la variable de salida
     FROM notas n
     JOIN evaluaciones ev ON n.evaluacion_id = ev.id
     JOIN asignaciones_docentes ad ON ev.asignacion_docente_id = ad.id
     WHERE n.estudiante_id = p_estudiante_id 
-    AND ad.asignatura_id = p_asignatura_id
-    AND ad.periodo_academico_id = p_periodo_academico_id;
-END //
+      AND ad.asignatura_id = p_asignatura_id
+      AND ad.periodo_academico_id = p_periodo_academico_id;
+END //    -- Fin del procedimiento
 
-DELIMITER ;
+DELIMITER ;   -- Volvemos al delimitador por defecto ;
+
 
 -- =====================================================
 -- TRIGGERS PARA AUDITORÍA Y VALIDACIONES
