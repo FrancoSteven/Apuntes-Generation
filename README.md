@@ -19,10 +19,21 @@ Repositorio diseñado para estudiantes y desarrolladores que necesitan consultar
 ## 🗂️ Estructura del Proyecto
 
 ```
-├── 📂 docs/        → Apuntes técnicos
+
+├── 📂 backend/           → Módulo práctico de backend
+│   ├── 📂 spring-boot/        →   Desarrollo con Spring Boot: APIs REST, JPA, seguridad y autenticación 
+│   └── 📂 node /            →   Construcción de APIs con Express.js: middlewares, rutas y conexión a bases de datos  
+├── 📂 bd/           → Módulo práctico de bases de datos
+│   ├── 📂 01-introduccion_bd/        → Fundamentos de bases de datos: modelos relacionales, DBMS, ventajas de sistemas SQL    
+│   ├── 📂 02-mysq/    → Instalación de MySQL, sintaxis básica (CREATE, INSERT, UPDATE), tipos de datos comunes  
+│   ├── 📂 03-mysql-integridad/         → Claves primarias/foráneas, restricciones (UNIQUE, CHECK), relaciones 1:1 y 1:N  
+│   ├── 📂 04-modelado/      → Diseño ER, normalización (1FN-3FN), diagramas con herramientas como Lucidchart  
+│   ├── 📂 05-join/          → Consultas con INNER/LEFT/RIGHT JOIN, ejemplos prácticos con múltiples tablas  
+│   └── 📂 practica /            → Enfoque práctico: desde teoría hasta implementación con MySQL
 ├── 📂 comandos/    → Guía rápida de Git (flujo de trabajo, comandos útiles)
 │   ├── 📂 linux/   → Comandos Linux esenciales y scripts
 │   └── 📂 git/     → Repasos de Java (POO, sintaxis, ejercicios)
+├── 📂 docs/        → Apuntes técnicos
 ├── 📂 java/        → Ejemplos y ejercicios fundamentales de Java
 │   ├── 📂 semana4/ → Código base: operadores, variables, comparación
 │   ├── 📂 semana5/ → Código base: for, while, do-while, if, else-if, switch, operadores ternarios
@@ -34,8 +45,10 @@ Repositorio diseñado para estudiantes y desarrolladores que necesitan consultar
 │   ├── 📂 03-intro-css/         → Introducción a CSS (estilos, clases, colores)
 │   ├── 📂 04-css-avanzado/      → Flexbox, Grid y diseño responsivo
 │   ├── 📂 05-css-bootstrap/          → Lógica básica con JavaScript
-│   └── 📂 06-mobile-first-design/            → Manipulación del DOM e interactividadicos
-│   └── 📂 07-js-dom/  →  Acceso y manipulación del DOM con selectores, eventos y Bootstrap
-│   └── 📂 08-js-basico/  → Fundamentos de JS: variables, arrays, funciones, condicionales, DOM
+│   ├── 📂 06-mobile-first-design/            → Manipulación del DOM e interactividadicos
+│   ├── 📂 07-js-dom/  →  Acceso y manipulación del DOM con selectores, eventos y Bootstrap
+│   ├── 📂 08-js-basico/  → Fundamentos de JS: variables, arrays, funciones, condicionales, DOM
+│   ├── 📂 09-js-formularios/  → Implementaciones progresivas: básico, arrays, filtros, LocalStorage y consumo JSON
+│   └── 📂 react/  → Desarrollo de aplicaciones con React: componentes, hooks, estado y consumo de APIs
 └── 📝 glosario/    → Definiciones de términos técnicos
 ```
