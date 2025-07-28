@@ -147,69 +147,59 @@ INSERT INTO matriculas (estudiante_id, curso_id, fecha_matricula, estado, observ
 -- =====================================================
 INSERT INTO profesores_jefe (docente_id, curso_id, anio) VALUES
 (1, 1, 2024), -- María Elena - 1° Básico A
-(1, 2, 2024), -- María Elena - 2° Básico A  
-(2, 3, 2024), -- Carlos - 3° Básico A
-(3, 4, 2024), -- Ana - 6° Básico A
-(4, 5, 2024), -- Roberto - 8° Básico A
-(5, 6, 2024), -- Patricia - 1° Medio A
-(6, 7, 2024), -- Diego - 2° Medio A
-(7, 8, 2024), -- Carmen - 3° Medio A
-(8, 9, 2024), -- Andrés - 4° Medio A
-(9, 9, 2024); -- Claudia - 4° Medio A
+(2, 2, 2024), -- María Elena - 2° Básico A  
+(3, 3, 2024), -- Carlos - 3° Básico A
+(4, 4, 2024), -- Ana - 6° Básico A
+(5, 5, 2024), -- Roberto - 8° Básico A
+(6, 6, 2024), -- Patricia - 1° Medio A
+(7, 7, 2024), -- Diego - 2° Medio A
+(8, 8, 2024), -- Carmen - 3° Medio A
+(9, 9, 2024), -- Andrés - 4° Medio A
 
 -- =====================================================
 -- ASIGNACIONES DE DOCENTES (2024 - 2do Semestre)
 -- =====================================================
 -- Período activo: 2024-2do semestre (id=4)
 INSERT INTO asignaciones_docentes (docente_id, asignatura_id, curso_id, periodo_academico_id) VALUES
--- 1° Básico A
-(1, 1, 1, 4), -- María Elena - Lenguaje
+(1, 1, 1, 4), -- María Elena - Lenguaje -- 1° Básico A
 (2, 2, 1, 4), -- Carlos - Matemática  
 (4, 3, 1, 4), -- Roberto - Ciencias
 (6, 6, 1, 4), -- Diego - Ed. Física
--- 2° Básico A
-(1, 1, 2, 4), -- María Elena - Lenguaje
+(1, 1, 2, 4), -- María Elena - Lenguaje -- 2° Básico A
 (2, 2, 2, 4), -- Carlos - Matemática
 (4, 3, 2, 4), -- Roberto - Ciencias
 (6, 6, 2, 4), -- Diego - Ed. Física
--- 3° Básico A  
-(3, 1, 3, 4), -- Ana - Lenguaje
+(3, 1, 3, 4), -- Ana - Lenguaje -- 3° Básico A  
 (2, 2, 3, 4), -- Carlos - Matemática
 (4, 3, 3, 4), -- Roberto - Ciencias
 (5, 4, 3, 4), -- Patricia - Historia
--- 6° Básico A
-(3, 1, 4, 4), -- Ana - Lenguaje
+(3, 1, 4, 4), -- Ana - Lenguaje -- 6° Básico A
 (2, 2, 4, 4), -- Carlos - Matemática
 (4, 3, 4, 4), -- Roberto - Ciencias
 (5, 4, 4, 4), -- Patricia - Historia
 (7, 5, 4, 4), -- Carmen - Inglés
--- 8° Básico A
-(3, 1, 5, 4), -- Ana - Lenguaje
+(3, 1, 5, 4), -- Ana - Lenguaje -- 8° Básico A
 (2, 2, 5, 4), -- Carlos - Matemática
 (4, 3, 5, 4), -- Roberto - Ciencias
 (5, 4, 5, 4), -- Patricia - Historia
 (7, 5, 5, 4), -- Carmen - Inglés
--- 1° Medio A
-(3, 1, 6, 4), -- Ana - Lenguaje
+(3, 1, 6, 4), -- Ana - Lenguaje -- 1° Medio A
 (2, 2, 6, 4), -- Carlos - Matemática
 (4, 3, 6, 4), -- Roberto - Ciencias
 (5, 4, 6, 4), -- Patricia - Historia
 (7, 5, 6, 4), -- Carmen - Inglés
--- 2° Medio A
-(3, 1, 7, 4), -- Ana - Lenguaje
+(3, 1, 7, 4), -- Ana - Lenguaje -- 2° Medio A
 (2, 2, 7, 4), -- Carlos - Matemática
 (4, 3, 7, 4), -- Roberto - Ciencias
 (5, 4, 7, 4), -- Patricia - Historia
 (7, 5, 7, 4), -- Carmen - Inglés
--- 3° Medio A
-(3, 1, 8, 4), -- Ana - Lenguaje
+(3, 1, 8, 4), -- Ana - Lenguaje -- 3° Medio A
 (2, 2, 8, 4), -- Carlos - Matemática
 (4, 3, 8, 4), -- Roberto - Ciencias
 (5, 4, 8, 4), -- Patricia - Historia
 (7, 5, 8, 4), -- Carmen - Inglés
 (4, 9, 8, 4), -- Roberto - Filosofía
--- 4° Medio A
-(3, 1, 9, 4), -- Ana - Lenguaje
+(3, 1, 9, 4), -- Ana - Lenguaje     -- 4° Medio A
 (2, 2, 9, 4), -- Carlos - Matemática
 (4, 3, 9, 4), -- Roberto - Ciencias
 (5, 4, 9, 4), -- Patricia - Historia
@@ -386,10 +376,6 @@ INSERT INTO notas (evaluacion_id, estudiante_id, nota, observaciones) VALUES
 (24, 12, 5.3, 'Ensayo necesita más desarrollo'),
 (25, 12, 4.2, 'Grandes dificultades con números irracionales'),
 (26, 12, 4.8, 'Errores en interpretación de gráficos');
-
--- Notas para Francisca Rojas (estudiante_id = 13, 2° Medio A)
-INSERT INTO notas (evaluacion_id, estudiante_id, nota, observaciones) VALUES
--- (Aquí se pueden agregar más evaluaciones para 2° Medio si se crean)
 
 -- Notas para estudiantes de 3° Medio A (Filosofía e Inglés)
 INSERT INTO notas (evaluacion_id, estudiante_id, nota, observaciones) VALUES
