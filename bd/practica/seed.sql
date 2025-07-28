@@ -154,7 +154,7 @@ INSERT INTO profesores_jefe (docente_id, curso_id, anio) VALUES
 (6, 6, 2024), -- Patricia - 1° Medio A
 (7, 7, 2024), -- Diego - 2° Medio A
 (8, 8, 2024), -- Carmen - 3° Medio A
-(9, 9, 2024), -- Andrés - 4° Medio A
+(9, 9, 2024); -- Andrés - 4° Medio A
 
 -- =====================================================
 -- ASIGNACIONES DE DOCENTES (2024 - 2do Semestre)
