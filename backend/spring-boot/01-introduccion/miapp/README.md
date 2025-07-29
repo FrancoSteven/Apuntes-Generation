@@ -150,5 +150,3 @@ Para reiniciar automáticamente la aplicación al guardar cambios, agrega en `po
 Con esto, no tendrás que reiniciar manualmente el servidor, similar a `nodemon` en Node.js.
 
 ---
-
-¿Te gustaría que **agregue diagramas simples en ASCII** para ilustrar cómo interactúan las capas (Controller → Service → Repository → BD) y cómo arranca el proyecto (Spring Boot + JPA + Hibernate)?
