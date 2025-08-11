@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <script>
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon/pikachu');
+    xhr.responseType = 'json';
+
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        console.log("Datos:", xhr.response);
+      } else {
+        console.error("Error:", xhr.statusText);
+      }
+    };
+
+    xhr.onerror = function() {
+      console.error("Error de red");
+    };
+
+    xhr.send();
+  </script>
+</body>
+</html>
